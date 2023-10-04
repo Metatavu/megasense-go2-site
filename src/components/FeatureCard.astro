@@ -1,0 +1,14 @@
+---
+type Props = {
+  className?: string;
+};
+
+const { className } = Astro.props;
+---
+
+<div
+  class="w-full aspect-[3/5] rounded-md p-4 inline-flex flex-col justify-start items-center bg-no-repeat bg-center bg-cover"
+  class:list={[className]}
+>
+  <slot/>
+</div>

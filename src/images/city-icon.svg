@@ -1,0 +1,10 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon City" clip-path="url(#clip0_655_2246)">
+<path id="Vector" d="M15 11.5V6.33C15 5.8 14.79 5.29 14.41 4.92L12.7 3.21C12.31 2.82 11.68 2.82 11.29 3.21L9.59 4.91C9.21 5.29 9 5.8 9 6.33V7.5H5C3.9 7.5 3 8.4 3 9.5V19.5C3 20.6 3.9 21.5 5 21.5H19C20.1 21.5 21 20.6 21 19.5V13.5C21 12.4 20.1 11.5 19 11.5H15ZM7 19.5H5V17.5H7V19.5ZM7 15.5H5V13.5H7V15.5ZM7 11.5H5V9.5H7V11.5ZM13 19.5H11V17.5H13V19.5ZM13 15.5H11V13.5H13V15.5ZM13 11.5H11V9.5H13V11.5ZM13 7.5H11V5.5H13V7.5ZM19 19.5H17V17.5H19V19.5ZM19 15.5H17V13.5H19V15.5Z" fill="#333333"/>
+</g>
+<defs>
+<clipPath id="clip0_655_2246">
+<rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg>

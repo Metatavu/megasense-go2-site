@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		@apply motion-safe:scroll-smooth;
+	}
+
+	[data-fade-in] {
+		@apply opacity-0 translate-y-8 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-in-out motion-reduce:opacity-100 motion-reduce:translate-y-0;
+	}
+}

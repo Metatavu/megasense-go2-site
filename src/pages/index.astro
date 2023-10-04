@@ -1,0 +1,93 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import FeatureCard from "@components/FeatureCard.astro";
+import FeatureInfo from "@components/FeatureInfo.astro";
+import { Image } from "astro:assets";
+import exposureStatistics from "@images/exposure-statistics.png";
+import healthIllustrationPlaceholder from "@images/health-illustration-placeholder.png";
+import healthIllustrationPlaceholder2 from "@images/health-illustration-placeholder-2.png";
+import ActionButton from "@components/ActionButton.astro";
+---
+
+<PageLayout title="GO2 - Home">
+	<Section id="home">
+	</Section>
+	<Section id="features">
+		<SectionTitle title="Features"/>
+		<FeatureCard className="bg-pollutants justify-end">
+			<FeatureInfo
+				title="See the air you breathe"
+				description="Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data."
+				hasBackground
+			/>
+		</FeatureCard>
+		<FeatureCard className="bg-go2-blue-light">
+			<FeatureInfo
+				title="Track your exposure"
+				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
+			/>
+			<Image
+				src={exposureStatistics}
+				alt="Exposure statistics dial"
+			/>
+		</FeatureCard>
+		<FeatureCard className="bg-route-finding justify-end">
+			<FeatureInfo
+				title="Track your exposure"
+				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
+				hasBackground
+			/>
+		</FeatureCard>
+	</Section>
+	<Section
+		id="health-and-well-being"
+		className="bg-go2-blue-light"
+	>
+		<SectionTitle title="Health and well-being"/>
+		<Image
+			src={healthIllustrationPlaceholder}
+			alt="Health illustration placeholder"
+			class="w-screen max-w-none"
+		/>
+		<h3 class="text-2xl">
+			Improve health, increase happiness
+		</h3>
+		<div class="flex flex-col gap-4">
+			<p>Air pollutants lead to poor health and reduced self esteem.</p>
+			<p>Pollution lowers productivity levels and income earnings.</p>
+			<p>Less environmental stress leads to less distress and better life satisfaction.</p>
+		</div>
+		<ActionButton title="Learn more" />
+	</Section>
+	<Section
+		id="science"
+		className="bg-go2-blue"
+	>
+		<SectionTitle
+			title="Science"
+			className="text-white"
+		/>
+		<Image
+			src={healthIllustrationPlaceholder2}
+			alt="Health illustration placeholder 2"
+			class="w-screen max-w-none"
+		/>
+		<h3 class="text-2xl text-white">
+			Obsessed with scientific accuracy
+		</h3>
+		<div class="flex flex-col gap-4 text-white">
+			<p>Uniquely accurate, evolving AI model combining traffic, emissions and weather data.</p>
+			<p>More compounds added constantly to model indoor and outdoor environments.</p>
+			<p>Finland-based international team with 2000+ top-level peer-reviewed papers.</p>
+		</div>
+		<ActionButton
+			title="Learn more"
+			className="bg-go2-blue-light text-go2-blue"
+		/>
+	</Section>
+	<footer id="footer">
+		
+	</footer>
+</PageLayout>

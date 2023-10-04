@@ -1,0 +1,17 @@
+---
+type Props = {
+  title: string;
+  className?: string;
+};
+
+const { title, className } = Astro.props;
+---
+
+<div class="w-full">
+  <h2
+    class="text-go2-blue font-bold uppercase text-xl"
+    class:list={[className]}
+  >
+    {title}
+  </h2>
+</div>

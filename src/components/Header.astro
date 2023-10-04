@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+import logo from "@images/go2-logo.svg";
+import ActionLink from "./ActionButton.astro";
+import homeIcon from "@images/home-icon.svg";
+import infoIcon from "@images/info-icon.svg";
+import healthIcon from "@images/health-icon.svg";
+import cityIcon from "@images/city-icon.svg";
+import ActionButton from "./ActionButton.astro";
+import downloadIcon from "@images/download-icon.svg";
+
+const navigationLinks = {
+  "Home": {
+    url: "/",
+    icon: homeIcon,
+    alt: "Home"
+  },
+  "Features": {
+    url: "#features",
+    icon: infoIcon,
+    alt: "Features"
+  },
+  "Health and Well-being": {
+    url: "#health-and-well-being",
+    icon: healthIcon,
+    alt: "Health and Well-being"
+  },
+  "Science": {
+    url: "#science",
+    icon: cityIcon,
+    alt: "Science"
+  }
+};
+
+---
+<main-navigation class="group">
+  <header class="bg-go2-blue-light fixed w-full z-50">
+    <div class="px-6 pt-20 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-16 group-data-[not-on-top]:pb-2">
+      <img
+        src={logo.src}
+        alt="Go2 Logo"
+        class="mr-auto h-10 motion-safe:transition-all duration-300 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
+      />
+      <ActionLink
+        dense
+        title="Install now"
+        className="group-data-[open]:opacity-0 motion-safe:transition-all duration-300 ease-out"
+      />
+      <button
+        menu-button
+        type="button"
+        title="Open menu"
+        class="flex flex-col h-10 w-10 justify-center items-center"
+      >
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
+      </button>
+    </div>
+    <div class="overflow-hidden h-0 group-data-[open]:h-96 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
+      <nav id="navigation" class="-translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
+        { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
+          <a href={url} class="px-6 py-4 flex flex-row justify-end text-black font-bold text-lg active:bg-go2-blue-dark">
+            <span class="mr-2">{title}</span>
+            <Image
+              src={icon}
+              alt={alt}
+            />
+          </a>
+        )}
+        <div class="p-4 pb-16 flex flex-row justify-end">
+          <ActionButton
+            title="Download GO2"
+            href=""
+            icon={downloadIcon}
+          />
+        </div>
+      </nav>
+    </div>
+  </header>
+</main-navigation>
+
+<!-- Web Component for controlling navigation -->
+<script>
+  class MainNavigation extends HTMLElement {
+    get open() {
+      return this.hasAttribute("data-open");
+    }
+
+    set open(value) {
+      if (value) {
+        this.setAttribute("data-open", "");
+      } else {
+        this.removeAttribute("data-open");
+      }
+    }
+
+    get notOnTop() {
+      return this.hasAttribute("data-not-on-top");
+    }
+
+    set notOnTop(value) {
+      if (value) {
+        this.setAttribute("data-not-on-top", "");
+      } else {
+        this.removeAttribute("data-not-on-top");
+      }
+    }
+
+    get navigationBar() {
+      const navigationBar = this.querySelector("[navigation-bar]");
+      if (!navigationBar) throw Error("No header found");
+      return navigationBar;
+    }
+
+    get menuButton() {
+      const menuButton = this.querySelector<HTMLButtonElement>("[menu-button]");
+      if (!menuButton) throw Error("No menu button found");
+      return menuButton;
+    }
+
+    get menu() {
+      const menu = this.querySelector("nav");
+      if (!menu) throw Error("No menu found");
+      return menu;
+    }
+
+    get links() {
+      return [...this.querySelectorAll<HTMLAnchorElement>("a").values()];
+    }
+
+    constructor() {
+      super();
+      this.menuButton?.addEventListener("click", () => this.open = !this.open);
+      this.links.forEach(link => link.addEventListener("click", () => this.open = false));
+      window.addEventListener("scroll", () => this.notOnTop = window.scrollY !== 0 || this.open);
+    }
+  }
+
+  customElements.define('main-navigation', MainNavigation);
+</script>
