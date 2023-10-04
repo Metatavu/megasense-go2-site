@@ -19,6 +19,5 @@ const scrollInDetector = new IntersectionObserver((elements) => {
 const scrollInElements = [...document.querySelectorAll("*[data-scroll-in]").values()];
 
 if (window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === false) {
-  console.log("töttöröö");
   scrollInElements.forEach((element) => scrollInDetector.observe(element));
 }
