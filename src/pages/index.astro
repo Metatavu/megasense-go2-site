@@ -6,9 +6,16 @@ import FeatureCard from "@components/FeatureCard.astro";
 import FeatureInfo from "@components/FeatureInfo.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
-import healthIllustrationPlaceholder from "@images/health-illustration-placeholder.png";
-import healthIllustrationPlaceholder2 from "@images/health-illustration-placeholder-2.png";
+import healthHeroImage from "@images/health-hero-image.png";
+import scienceHeroImage from "@images/science-hero-image.png";
+import supportHeroImage from "@images/support-hero-image.png";
+import globePlaceholder from "@images/globe-placeholder.png";
 import ActionButton from "@components/ActionButton.astro";
+import appIcon from "@images/go2-app-icon.svg";
+import downloadIcon from "@images/download-icon.svg";
+import AccordionItem from "@components/AccordionItem.astro";
+
+
 ---
 
 <PageLayout title="GO2 - Home">
@@ -47,9 +54,9 @@ import ActionButton from "@components/ActionButton.astro";
 	>
 		<SectionTitle title="Health and well-being"/>
 		<Image
-			src={healthIllustrationPlaceholder}
+			src={healthHeroImage}
 			alt="Health illustration placeholder"
-			class="w-screen max-w-none"
+			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
 			Improve health, increase happiness
@@ -70,9 +77,9 @@ import ActionButton from "@components/ActionButton.astro";
 			className="text-white"
 		/>
 		<Image
-			src={healthIllustrationPlaceholder2}
-			alt="Health illustration placeholder 2"
-			class="w-screen max-w-none"
+			src={scienceHeroImage}
+			alt="Science illustration placeholder 2"
+			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl text-white">
 			Obsessed with scientific accuracy
@@ -87,7 +94,119 @@ import ActionButton from "@components/ActionButton.astro";
 			className="bg-go2-blue-light text-go2-blue"
 		/>
 	</Section>
-	<footer id="footer">
-		
-	</footer>
+	<Section
+		id="Download"
+		className="bg-clouds w-full bg-cover bg-center"
+	>
+		<h3 class="text-2xl text-black text-center w-9/12">Take a fresh start. Download GO2 for free</h3>
+		<ActionButton
+			title=""
+			icon={appIcon}
+			className="rounded-[24px]"
+		/>
+	</Section>
+	<Section
+		id="availability"
+		className="bg-go2-blue-light"
+	>
+		<SectionTitle
+			title="Availability"
+			className="text-go2-blue"
+		/>
+		<Image
+			src={globePlaceholder}
+			alt="Globe placeholder"
+			class="w-4/12 max-w-none"
+		/>
+		<h3 class="text-2xl text-black text-center">
+			Currently available in London
+		</h3>
+		<div class="flex flex-col gap-4 text-black text-center">
+			<p>If you live outside London, don’t worry. We’re constantly expanding coverage.</p>
+			<p>Join the waitlist to be the first know.</p>
+		</div>
+		<ActionButton
+			title="Join the waiting list"
+			className="bg-go2-blue text-white"
+		/>
+	</Section>
+	<Section
+		id="subscription"
+		className="bg-clouds-2 bg-cover bg-center"
+	>
+		<SectionTitle
+			title="Subscription options"
+			className="text-go2-blue"
+		/>
+		<h3 class="text-2xl text-black text-center">
+			Try for free, get Pro for the full experience
+		</h3>
+		<div class="flex flex-col gap-4 text-black text-center">
+			<p>Start with a 3-month free trial and if you enjoy using GO2 – and we think you will – switch to a Pro subscription for £9.90/mo or £99.90/year.*</p>
+		</div>
+		<ActionButton
+			title="Download for free"
+			className="bg-go2-blue text-white"
+			icon={downloadIcon}
+		/>
+		<div class="flex flex-col gap-4 text-gray-500 text-xs">
+			<p>* Legal boilerplate about the price and how it’s charged. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+		</div>
+	</Section>
+	<Section
+		id="support"
+		className="bg-white"
+	>
+		<SectionTitle title="Support"/>
+		<Image
+			src={supportHeroImage}
+			alt="Support illustration placeholder"
+			class="w-full max-w-none max-h-hero-image"
+		/>
+		<h3 class="text-2xl">
+			How can we help you
+		</h3>
+		<div class="flex flex-col gap-4">
+			<p>We’ve collected some of the most common questions and their answers below.</p>
+			<p> If you can’t find what you’re looking for, you can always contact us.</p>
+		</div>
+		<ActionButton title="Contact support" />
+	</Section>
+	<Section
+		id="support-faq"
+		className="bg-white"
+	>
+		<SectionTitle title="Support"/>
+		<h3 class="text-2xl">
+			Frequently asked questions
+		</h3>
+		<AccordionItem
+			summary="What are PM2.5, PM10, CO2 and NOx?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="How is the air quality measured?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="How are the forecasts created?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="How can I cancel my subscription?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="What’s included in the free version?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="Why should I upgrade to the Pro version?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+		<AccordionItem
+			summary="Which devices are supported?"
+			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+		/>
+	</Section>
 </PageLayout>

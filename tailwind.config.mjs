@@ -8,6 +8,9 @@ export default {
 			backgroundImage: {
 				pollutants: "url('/pollutants.png')",
 				"route-finding": "url('/route-finding.png')",
+				clouds: "url('/clouds.png')",
+				"app-image": "url('/go2-app-icon.png')",
+				"clouds-2": "url('/clouds-2.png')",
 			},
 			fontFamily: {
 				"sans": ["Lexend", ...defaultTheme.fontFamily.sans],
@@ -17,9 +20,13 @@ export default {
 				"go2-blue": {
 					DEFAULT: "#00a1e5",
 					light: "#edfaff",
-					hover: "#ccdce3"
+					hover: "#ccdce3",
+					dark: "#1f2d33"
 				}
 			},
+			maxHeight: {
+				"hero-image": "30vh"
+			}
 		},
 	},
 	plugins: [],

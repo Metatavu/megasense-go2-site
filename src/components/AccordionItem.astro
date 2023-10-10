@@ -1,0 +1,17 @@
+---
+type Props = {
+  className?: string;
+  summary: string;
+  content: string;
+};
+
+const { className, summary, content } = Astro.props;
+---
+
+<details
+  class="bg-go2-blue-light px-16 py-1 rounded-2xl"
+  class:list={[className]}
+>
+  <summary class="list-none font-bold">{summary}</summary>
+  <p class="my-4">{content}</p>
+</details>

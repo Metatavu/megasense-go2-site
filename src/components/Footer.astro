@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import logo from "@images/go2-logo.svg";
+import homeIconFooter from "@images/home-icon-footer.svg";
+import featureIconFooter from "@images/feature-icon-footer.svg";
+import healthIconFooter from "@images/health-icon-footer.svg";
+import scienceIconFooter from "@images/science-icon-footer.svg";
+import infoIconFooter from "@images/info-icon-footer.svg";
+import ActionButton from "./ActionButton.astro";
+import downloadIcon from "@images/download-icon.svg";
+import Section from "./Section.astro";
+
+
+const navigationLinks = {
+  "Home": {
+    url: "/",
+    icon: homeIconFooter,
+    alt: "Home"
+  },
+  "Features": {
+    url: "#features",
+    icon: featureIconFooter,
+    alt: "Features"
+  },
+  "Health and Well-being": {
+    url: "#health-and-well-being",
+    icon: healthIconFooter,
+    alt: "Health and Well-being"
+  },
+  "Science": {
+    url: "#science",
+    icon: scienceIconFooter,
+    alt: "Science"
+  },
+  "Pricing and availability": {
+    url: "#pricing-and-availability",
+    icon: infoIconFooter,
+    alt: "Pricing and availability"
+  },
+  "Support": {
+    url: "#support",
+    icon: scienceIconFooter,
+    alt: "Support"
+  }
+};
+
+const secondaryNavigationLinks = {
+  "Privacy policy": {
+    url: "#privacy-policy"
+  },
+  "About MegaSense": {
+    url: "#about-megasense"
+  }
+}
+
+---
+<Section
+  id="footer-section"
+  className="bg-go2-blue-dark"
+>
+  <footer id="footer">
+    <div class="justify-center mt-8 mb-14">
+      <div class="flex flex-row justify-center mb-4">
+        <img
+          src={logo.src}
+          alt="Go2 Logo"
+        />
+        <p class=" w-1/3 text-xs text-go2-blue font-bold">Powered by MegaSense</p>
+      </div>
+      <p class="text-white text-center">Choose the air you breathe</p>
+    </div>
+    <nav class="group items-center">
+      <ActionButton
+        title="Download GO2"
+        href=""
+        icon={downloadIcon}
+        className="justify-center my-6"
+      />
+      { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
+        <a href={url} class="px-6 py-4 flex flex-row justify-center text-white font-bold text-lg">
+        <Image
+            src={icon}
+            alt={alt}
+          />
+          <span class="mr-2">{title}</span>
+        </a>
+      )}
+      <div class="my-8">
+        { Object.entries(secondaryNavigationLinks).map(([title, { url }]) =>
+          <a href={url} class="px-6 py-4 flex flex-row justify-center text-white font-bold text-md">
+            <span class="mr-2">{title}</span>
+          </a>
+        )}
+      </div>
+    </nav>
+    <p class="text-center text-white text-sm">© 2023–now • MegaSense Oy</p>
+  </footer>
+</Section>
