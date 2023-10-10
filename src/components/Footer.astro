@@ -5,6 +5,7 @@ import homeIconFooter from "@images/home-icon-footer.svg";
 import featureIconFooter from "@images/feature-icon-footer.svg";
 import healthIconFooter from "@images/health-icon-footer.svg";
 import scienceIconFooter from "@images/science-icon-footer.svg";
+import supportIconFooter from "@images/support-icon-footer.svg";
 import infoIconFooter from "@images/info-icon-footer.svg";
 import ActionButton from "./ActionButton.astro";
 import downloadIcon from "@images/download-icon.svg";
@@ -22,10 +23,10 @@ const navigationLinks = {
     icon: featureIconFooter,
     alt: "Features"
   },
-  "Health and Well-being": {
-    url: "#health-and-well-being",
+  "Health and happiness": {
+    url: "#health-and-happiness",
     icon: healthIconFooter,
-    alt: "Health and Well-being"
+    alt: "Health and happiness"
   },
   "Science": {
     url: "#science",
@@ -39,7 +40,7 @@ const navigationLinks = {
   },
   "Support": {
     url: "#support",
-    icon: scienceIconFooter,
+    icon: supportIconFooter,
     alt: "Support"
   }
 };
@@ -59,13 +60,13 @@ const secondaryNavigationLinks = {
   className="bg-go2-blue-dark"
 >
   <footer id="footer">
-    <div class="justify-center mt-8 mb-14">
+    <div class="justify-center mt-8 mb-10">
       <div class="flex flex-row justify-center mb-4">
         <img
           src={logo.src}
           alt="Go2 Logo"
         />
-        <p class=" w-1/3 text-xs text-go2-blue font-bold">Powered by MegaSense</p>
+        <p class="w-1/3 text-xs text-go2-blue font-bold text-[10px] ml-1">Powered by MegaSense</p>
       </div>
       <p class="text-white text-center">Choose the air you breathe</p>
     </div>
@@ -74,25 +75,25 @@ const secondaryNavigationLinks = {
         title="Download GO2"
         href=""
         icon={downloadIcon}
-        className="justify-center my-6"
+        className="justify-center text-md my-4"
       />
       { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
-        <a href={url} class="px-6 py-4 flex flex-row justify-center text-white font-bold text-lg">
-        <Image
+        <a href={url} class="px-6 py-3 flex flex-row justify-center text-white font-bold text-sm text-center">
+          <Image
             src={icon}
             alt={alt}
           />
-          <span class="mr-2">{title}</span>
+          <span class="mr-3 ml-1 pt-1">{title}</span>
         </a>
       )}
       <div class="my-8">
         { Object.entries(secondaryNavigationLinks).map(([title, { url }]) =>
-          <a href={url} class="px-6 py-4 flex flex-row justify-center text-white font-bold text-md">
+          <a href={url} class="px-6 py-4 flex flex-row justify-center text-white font-bold text-sm">
             <span class="mr-2">{title}</span>
           </a>
         )}
       </div>
     </nav>
-    <p class="text-center text-white text-sm">© 2023–now • MegaSense Oy</p>
+    <p class="text-center text-white text-xs">© 2023–now • MegaSense Oy</p>
   </footer>
 </Section>

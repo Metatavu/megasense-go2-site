@@ -22,10 +22,10 @@ const navigationLinks = {
     icon: featureIcon,
     alt: "Features"
   },
-  "Health and Well-being": {
-    url: "#health-and-well-being",
+  "Health and happiness": {
+    url: "#health-and-happiness",
     icon: healthIcon,
-    alt: "Health and Well-being"
+    alt: "Health and happiness"
   },
   "Science": {
     url: "#science",
@@ -56,14 +56,14 @@ const secondaryNavigationLinks = {
 ---
 <main-navigation class="group">
   <header class="bg-go2-blue-light fixed w-full z-50">
-    <div class="px-6 pt-20 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-2">
+    <div class="px-6 pt-6 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4">
       <div class="flex flex-row justify-start">
         <img
           src={logo.src}
           alt="Go2 Logo"
-          class="h-10 motion-safe:transition-all duration-300 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
+          class="h-8 motion-safe:transition-all duration-300 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
         />
-        <p class=" w-1/2 text-[10px] text-go2-blue font-bold">Powered by MegaSense</p>
+        <p class=" w-1/2 text-[10px] text-go2-blue font-bold ml-1">Powered by MegaSense</p>
       </div>
       <ActionLink
         dense
@@ -84,7 +84,7 @@ const secondaryNavigationLinks = {
     <div class="overflow-hidden h-0 group-data-[open]:h-4/5 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
       <nav id="navigation" class="-translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
         { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
-          <a href={url} class="px-6 py-4 flex flex-row justify-end text-black font-bold text-lg active:bg-go2-blue-dark">
+          <a href={url} class="px-6 py-3 flex flex-row justify-end text-black font-bold text-md active:bg-go2-blue-dark">
             <span class="mr-2">{title}</span>
             <Image
               src={icon}
@@ -92,7 +92,7 @@ const secondaryNavigationLinks = {
             />
           </a>
         )}
-        <div class="p-4 pb-16 flex flex-row justify-end">
+        <div class="p-4 flex flex-row justify-end">
           <ActionButton
             title="Download GO2"
             href=""
@@ -100,7 +100,7 @@ const secondaryNavigationLinks = {
           />
         </div>
         { Object.entries(secondaryNavigationLinks).map(([title, { url }]) =>
-          <a href={url} class="px-6 py-4 flex flex-row justify-end text-black  text-md">
+          <a href={url} class="px-6 py-3 flex flex-row justify-end text-black  text-sm">
             <span class="mr-2">{title}</span>
           </a>
         )}
