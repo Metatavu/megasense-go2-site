@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import SectionTitle from './SectionTitle.astro';
+import ActionButton from './ActionButton.astro';
+import downArrowIcon from "@images/down-arrow-icon.svg";
+import globePlaceholder from "@images/globe-placeholder.png";
+
+type Props = {
+  sectionTitle: string;
+  heading: string;
+  content: string;
+};
+
+const { sectionTitle, heading, content } = Astro.props;
+---
+
+<>
+  <SectionTitle
+      title={sectionTitle}
+      className="text-go2-blue"
+    />
+    <Image
+      src={globePlaceholder}
+      alt="Globe placeholder"
+      class="w-4/12 max-w-none"
+    />
+    <h3 class="text-2xl text-black text-center">
+      {heading}
+    </h3>
+    <div class="flex flex-col gap-4 text-black text-center">
+      <p>{content}</p>
+    </div>
+    <ActionButton
+      title="Read more"
+      className="bg-transparent text-go2-blue border border-go2-blue"
+      icon={downArrowIcon}
+    />
+</>

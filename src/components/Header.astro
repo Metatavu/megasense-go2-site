@@ -23,7 +23,7 @@ const navigationLinks = {
     alt: "Features"
   },
   "Health and happiness": {
-    url: "#health-and-happiness",
+    url: "/health-and-happiness",
     icon: healthIcon,
     alt: "Health and happiness"
   },
@@ -56,7 +56,8 @@ const secondaryNavigationLinks = {
 ---
 <main-navigation class="group">
   <header class="bg-go2-blue-light fixed w-full z-50">
-    <div class="px-6 pt-10 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4">
+    <!-- TODO: Adjusting the header seems to have affected the feature card animations- check-->
+    <div class="px-6 pt-6 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4">
       <div class="flex flex-row justify-start">
         <img
           src={logo.src}
