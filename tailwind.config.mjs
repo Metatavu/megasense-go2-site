@@ -25,7 +25,8 @@ export default {
 				}
 			},
 			maxHeight: {
-				"hero-image": "30vh"
+				"home-hero-image": "30vh",
+				"hero-image": "40vh"
 			}
 		},
 	},

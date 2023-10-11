@@ -1,0 +1,102 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import { Image } from "astro:assets";
+import exposureStatistics from "@images/exposure-statistics.png";
+import healthHeroImage from "@images/health-hero-image.png";
+import ActionButton from "@components/ActionButton.astro";
+import downArrowIcon from "@images/down-arrow-icon.svg";
+import pollutants from "public/pollutants.png"
+import routeFinding from "@images/route-finding.png"
+
+---
+
+<PageLayout title="GO2 - Features">
+  <Section id="features-page">
+	</Section>
+  <Section
+		id="features-start"
+		className="bg-white"
+	>
+		<Image
+			src={healthHeroImage}
+			alt="Health illustration placeholder"
+			class="w-full max-w-none max-h-hero-image"
+		/>
+		<h3 class="text-2xl">
+			Features
+		</h3>
+		<div class="flex flex-col gap-4">
+			<p class="text-center">Ut enim ad minim veniam, quis nostrud. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
+		</div>
+	</Section>
+	<Section id="air-quality-map">
+		<SectionTitle title="Air quality map"/>
+    <div class="h-[50vh] overflow-hidden">
+      <Image
+        src={pollutants}
+        alt="Pollutants"
+        class="w-full max-w-none"
+      />
+    </div>
+    <h3 class="text-2xl text-center">
+      See the air you breathe
+    </h3>
+    <div class="flex flex-col gap-4">
+      <p class="text-center">Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data.</p>
+    </div>
+    <ActionButton
+      title="Read more"
+      className="bg-transparent text-go2-blue border border-go2-blue"
+      icon={downArrowIcon}
+    />
+  </Section>
+  <Section
+    id="exposure-tracking"
+    className="bg-go2-blue-light"
+  >
+    <SectionTitle title="Exposure tracking"/>
+    <Image
+      src={exposureStatistics}
+      alt="Exposure statistics dial"
+    />
+    <h3 class="text-2xl text-center">
+      Your air quality time
+    </h3>
+    <div class="flex flex-col gap-4">
+      <p class="text-center">Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness.</p>
+    </div>
+    <ActionButton
+      title="Read more"
+      className="bg-transparent white text-go2-blue border border-go2-blue"
+      icon={downArrowIcon}
+    />
+	</Section>
+	<Section
+		id="clean-routing"
+		className="bg-white"
+	>
+		<SectionTitle
+			title="Clean routing"
+			className="text-go2-blue"
+		/>
+    <div class="h-[50vh] overflow-hidden">
+      <Image
+        src={routeFinding}
+        alt="Science illustration placeholder 2"
+      />
+    </div>
+		<h3 class="text-2xl text-black text-center">
+			Always take the freshest route
+		</h3>
+		<div class="flex flex-col gap-4 text-black text-center">
+			<p>Reduce your exposure by taking the least polluted route when walking, running or cycling.</p>
+		</div>
+		<ActionButton
+      title="Read more"
+      className="bg-transparent white text-go2-blue border border-go2-blue"
+      icon={downArrowIcon}
+    />
+	</Section>
+</PageLayout>
