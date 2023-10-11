@@ -2,60 +2,60 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import healthHeroImage from "@images/health-hero-image.png";
+import scienceHeroImage from "@images/science-hero-image.png";
 import GlobeReadMoreCard from "@components/GlobeReadMoreCard.astro";
 
 ---
 
-<PageLayout title="GO2 - Health">
+<PageLayout title="GO2 - Science">
   <Section
-    id="health-page"
+    id="science-page"
     className="pb-10"
   >
 	</Section>
   <Section
-		id="health-start"
-		className="bg-go2-blue-light"
+		id="science-start"
+		className="bg-white"
 	>
 		<Image
-			src={healthHeroImage}
-			alt="Health illustration placeholder"
+			src={scienceHeroImage}
+			alt="Science illustration placeholder"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
-			Health and happiness
+			Science
 		</h3>
 		<div class="flex flex-col gap-4">
-			<p class="text-center">Fresh air helps you lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
+			<p class="text-center">Ut enim ad minim veniam, quis nostrud. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
 		</div>
 	</Section>
   <Section
-    id="pollution"
-    className="bg-white"
-  >
-    <GlobeReadMoreCard
-      sectionTitle="Pollution"
-      heading="What are the pollutants that make for bad air?"
-      content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
-    />
-  </Section>
-  <Section
-    id="health"
+    id="megasense-method"
     className="bg-go2-blue-light"
   >
     <GlobeReadMoreCard
-      sectionTitle="Health"
-      heading="Fresh air, health and happiness"
+      sectionTitle="The Megasense Method"
+      heading="Obsessed with scientific accuracy"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
     />
   </Section>
   <Section
-    id="climate-change"
+    id="data-cloud"
     className="bg-white"
   >
     <GlobeReadMoreCard
-      sectionTitle="Climate change"
-      heading="Extreme weather events and air quality"
+      sectionTitle="Data cloud"
+      heading="Real-time, real-aworld air quality data "
+      content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+    />
+  </Section>
+  <Section
+    id="team"
+    className="bg-go2-blue-light"
+  >
+    <GlobeReadMoreCard
+      sectionTitle="Team"
+      heading="2,000+ peer-reviewed papers, 5 nationalities and 1 goal"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
     />
   </Section>
