@@ -3,7 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
 import scienceHeroImage from "@images/science-hero-image.png";
-import GlobeReadMoreCard from "@components/GlobeReadMoreCard.astro";
+import GenericGlobeCard from "@components/GenericGlobeCard.astro";
 
 ---
 
@@ -33,30 +33,33 @@ import GlobeReadMoreCard from "@components/GlobeReadMoreCard.astro";
     id="megasense-method"
     className="bg-go2-blue-light"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="The Megasense Method"
       heading="Obsessed with scientific accuracy"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
   <Section
     id="data-cloud"
     className="bg-white"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="Data cloud"
       heading="Real-time, real-aworld air quality data "
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
   <Section
     id="team"
     className="bg-go2-blue-light"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="Team"
       heading="2,000+ peer-reviewed papers, 5 nationalities and 1 goal"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
 </PageLayout>

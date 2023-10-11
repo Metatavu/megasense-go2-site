@@ -3,14 +3,14 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
 import healthHeroImage from "@images/health-hero-image.png";
-import GlobeReadMoreCard from "@components/GlobeReadMoreCard.astro";
+import GenericGlobeCard from "@components/GenericGlobeCard.astro";
 
 ---
 
 <PageLayout title="GO2 - Health">
   <Section
     id="health-page"
-    className="pb-10"
+    className="pb-10 bg-go2-blue-light"
   >
 	</Section>
   <Section
@@ -33,30 +33,33 @@ import GlobeReadMoreCard from "@components/GlobeReadMoreCard.astro";
     id="pollution"
     className="bg-white"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="Pollution"
       heading="What are the pollutants that make for bad air?"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
   <Section
     id="health"
     className="bg-go2-blue-light"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="Health"
       heading="Fresh air, health and happiness"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
   <Section
     id="climate-change"
     className="bg-white"
   >
-    <GlobeReadMoreCard
+    <GenericGlobeCard
       sectionTitle="Climate change"
       heading="Extreme weather events and air quality"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      buttonLabel="Read more"
     />
   </Section>
 </PageLayout>

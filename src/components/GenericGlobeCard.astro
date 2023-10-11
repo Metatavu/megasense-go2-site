@@ -9,9 +9,15 @@ type Props = {
   sectionTitle: string;
   heading: string;
   content: string;
+  buttonLabel: string;
+  darkButton?: boolean
 };
 
-const { sectionTitle, heading, content } = Astro.props;
+const { sectionTitle, heading, content, buttonLabel, darkButton } = Astro.props;
+
+const buttonClass = darkButton ? undefined : "bg-transparent text-go2-blue border border-go2-blue"
+const icon = darkButton ? undefined : downArrowIcon;
+
 ---
 
 <>
@@ -31,8 +37,8 @@ const { sectionTitle, heading, content } = Astro.props;
       <p>{content}</p>
     </div>
     <ActionButton
-      title="Read more"
-      className="bg-transparent text-go2-blue border border-go2-blue"
-      icon={downArrowIcon}
+      title={buttonLabel}
+      className={buttonClass}
+      icon={icon}
     />
 </>

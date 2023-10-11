@@ -1,0 +1,54 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import supportHeroImage from "@images/support-hero-image.png";
+import GenericGlobeCard from "@components/GenericGlobeCard.astro";
+import AccordionItem from "@components/AccordionItem.astro";
+
+---
+
+<PageLayout title="GO2 - Science">
+  <Section
+    id="support-page"
+    className="pb-10"
+  >
+	</Section>
+  <Section
+		id="support-start"
+		className="bg-white"
+	>
+		<Image
+			src={supportHeroImage}
+			alt="Science illustration placeholder"
+			class="w-full max-w-none max-h-hero-image"
+		/>
+		<h3 class="text-2xl">
+			Support
+		</h3>
+		<div class="flex flex-col gap-4">
+			<p class="text-center">Ut enim ad minim veniam, quis nostrud. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
+		</div>
+	</Section>
+  <Section
+    id="support-faq"
+  >
+  <!-- TODO: Should this have the full faq? -->
+    <AccordionItem
+      summary="What are PM2.5, PM10, CO2 and NOx?"
+      content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
+    />
+  </Section>
+  <Section
+    id="customer-support"
+    className="bg-white"
+  >
+    <GenericGlobeCard
+      sectionTitle="Customer support"
+      heading="How can we help you?"
+      content="If you coudln’t find an answer to your problem above, you can always contact us."
+      buttonLabel="Contact support"
+      darkButton
+    />
+  </Section>
+</PageLayout>
