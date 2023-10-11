@@ -47,10 +47,10 @@ const navigationLinks = {
 
 const secondaryNavigationLinks = {
   "Privacy policy": {
-    url: "#privacy-policy"
+    url: "/privacy-policy"
   },
   "About MegaSense": {
-    url: "#about-megasense"
+    url: "/about-megasense"
   }
 }
 
@@ -75,7 +75,7 @@ const secondaryNavigationLinks = {
         title="Download GO2"
         href=""
         icon={downloadIcon}
-        className="justify-center text-md my-4"
+        className="justify-center text-sm my-4 items-center py-2"
       />
       { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
         <a href={url} class="px-6 py-3 flex flex-row justify-center text-white font-bold text-sm text-center">
