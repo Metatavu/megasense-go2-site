@@ -7,9 +7,9 @@ type Props = {
 
 const { className, summary, content } = Astro.props;
 ---
-<!-- TODO: trainsition not working here -->
+<!-- TODO: Add transition -->
 <details
-  class="bg-go2-blue-light px-16 py-1 rounded-2xl text-sm transition-all ease  details-[open]: max-h-screen"
+  class="bg-go2-blue-light px-16 py-1 rounded-2xl text-sm"
   class:list={[className]}
 >
   <summary class="list-none font-bold">{summary}</summary>
