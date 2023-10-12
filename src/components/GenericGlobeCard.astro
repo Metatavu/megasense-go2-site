@@ -1,44 +1,43 @@
 ---
 import { Image } from 'astro:assets';
 import SectionTitle from './SectionTitle.astro';
-import ActionButton from './ActionButton.astro';
+import ReadMoreButtonAccordion from './ReadMoreButtonAccordion.astro';
 import downArrowIcon from "@images/down-arrow-icon.svg";
 import globePlaceholder from "@images/globe-placeholder.png";
 
 type Props = {
+  toggleId: string;
   sectionTitle: string;
   heading: string;
   content: string;
-  buttonLabel: string;
-  darkButton?: boolean
+  readMoreContent: string;
 };
 
-const { sectionTitle, heading, content, buttonLabel, darkButton } = Astro.props;
+const { sectionTitle, heading, content, readMoreContent, toggleId } = Astro.props;
 
-const buttonClass = darkButton ? undefined : "bg-transparent text-go2-blue border border-go2-blue"
-const icon = darkButton ? undefined : downArrowIcon;
 
 ---
 
 <>
   <SectionTitle
-      title={sectionTitle}
-      className="text-go2-blue"
-    />
-    <Image
-      src={globePlaceholder}
-      alt="Globe placeholder"
-      class="w-4/12 max-w-none"
-    />
-    <h3 class="text-2xl text-black text-center">
-      {heading}
-    </h3>
-    <div class="flex flex-col gap-4 text-black text-center">
-      <p>{content}</p>
-    </div>
-    <ActionButton
-      title={buttonLabel}
-      className={buttonClass}
-      icon={icon}
-    />
+    title={sectionTitle}
+    className="text-go2-blue"
+  />
+  <Image
+    src={globePlaceholder}
+    alt="Globe placeholder"
+    class="w-4/12 max-w-none"
+  />
+  <h3 class="text-2xl text-black text-center">
+    {heading}
+  </h3>
+  <div class="flex flex-col gap-4 text-black text-center">
+    <p>{content}</p>
+  </div>
+  <ReadMoreButtonAccordion
+    toggleId={toggleId}
+    content={readMoreContent}
+    className="bg-transparent text-go2-blue border border-go2-blue"
+    icon={downArrowIcon}
+  />
 </>

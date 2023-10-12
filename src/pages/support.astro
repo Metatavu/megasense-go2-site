@@ -3,8 +3,10 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
 import supportHeroImage from "@images/support-hero-image.png";
-import GenericGlobeCard from "@components/GenericGlobeCard.astro";
 import AccordionItem from "@components/AccordionItem.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import ActionButton from "@components/ActionButton.astro";
+import globePlaceholder from "@images/globe-placeholder.png";
 
 ---
 
@@ -43,12 +45,23 @@ import AccordionItem from "@components/AccordionItem.astro";
     id="customer-support"
     className="bg-white"
   >
-    <GenericGlobeCard
-      sectionTitle="Customer support"
-      heading="How can we help you?"
-      content="If you coudln’t find an answer to your problem above, you can always contact us."
-      buttonLabel="Contact support"
-      darkButton
+    <SectionTitle
+      title="Customer support"
+      className="text-go2-blue"
+    />
+    <Image
+      src={globePlaceholder}
+      alt="Globe placeholder"
+      class="w-4/12 max-w-none"
+    />
+    <h3 class="text-2xl text-black text-center">
+      How can we help you?
+    </h3>
+    <div class="flex flex-col gap-4 text-black text-center">
+      <p>If you couldn’t find an answer to your problem above, you can always contact us.</p>
+    </div>
+    <ActionButton
+      title="Contact support"
     />
   </Section>
 </PageLayout>
