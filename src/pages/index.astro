@@ -9,19 +9,65 @@ import exposureStatistics from "@images/exposure-statistics.png";
 import healthHeroImage from "@images/health-hero-image.png";
 import scienceHeroImage from "@images/science-hero-image.png";
 import supportHeroImage from "@images/support-hero-image.png";
-import globePlaceholder from "@images/globe-placeholder.png";
+import muteIcon from "@images/mute-icon.svg";
 import ActionButton from "@components/ActionButton.astro";
 import appIcon from "@images/go2-app-icon.svg";
-import downloadIcon from "@images/download-icon.svg";
+import pauseIcon from "@images/pause-icon.svg";
 import AccordionItem from "@components/AccordionItem.astro";
 import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
-
+import GO2Explainer from "@video/GO2-Explainer.mp4";
 
 ---
 
 <PageLayout title="GO2 - Home">
-	<Section id="home">
+	<Section id="home" className="pb-0 pt-9">
+	</Section>
+	<!-- TODO: Needs positioning with the header, height setting,  webkit-fill as per design? -->
+	<Section id="video">
+		<figure class="w-screen">
+			<video
+				id="video"
+				controls
+				preload="metadata"
+				poster="/src/images/video-poster.png"
+			>
+				<source src={GO2Explainer} type="video/mp4" />
+				<track
+					label="English"
+					kind="subtitles"
+					srclang="en"
+					src="/src/video/GO2-Explainer-subtitles.vtt"
+					default
+				/>
+			</video>
+			<!-- TODO: Controls functionality and progress styling -->
+			<ul
+				id="video-controls"
+				class="flex flex-row w-screen justify-around hidden"
+			>
+				<li>
+					<button id="playpause" type="button">
+						<Image src={pauseIcon} alt="pause icon" />
+					</button>
+				</li>
+				<li>
+					<progress
+						id="progress"
+						value="5"
+						max="100"
+						class="h-1"
+					>
+						<span id="progress-bar"></span>
+					</progress>
+				</li>
+				<li>
+					<button id="mute" type="button">
+						<Image src={muteIcon} alt="mute icon" />
+					</button>
+				</li>
+			</ul>
+		</figure>
 	</Section>
 	<Section id="features">
 		<SectionTitle title="Features"/>
