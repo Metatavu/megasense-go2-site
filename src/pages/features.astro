@@ -9,6 +9,7 @@ import ActionButton from "@components/ActionButton.astro";
 import downArrowIcon from "@images/down-arrow-icon.svg";
 import pollutants from "public/pollutants.png"
 import routeFinding from "@images/route-finding.png"
+import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
 
 ---
 
@@ -47,10 +48,9 @@ import routeFinding from "@images/route-finding.png"
     <div class="flex flex-col gap-4">
       <p class="text-center">Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data.</p>
     </div>
-    <ActionButton
-      title="Read more"
+    <ReadMoreButtonAccordion
+      content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
       className="bg-transparent text-go2-blue border border-go2-blue"
-      icon={downArrowIcon}
     />
   </Section>
   <Section
@@ -68,10 +68,9 @@ import routeFinding from "@images/route-finding.png"
     <div class="flex flex-col gap-4">
       <p class="text-center">Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness.</p>
     </div>
-    <ActionButton
-      title="Read more"
-      className="bg-transparent white text-go2-blue border border-go2-blue"
-      icon={downArrowIcon}
+    <ReadMoreButtonAccordion
+      content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
+      className="bg-transparent text-go2-blue border border-go2-blue"
     />
 	</Section>
 	<Section

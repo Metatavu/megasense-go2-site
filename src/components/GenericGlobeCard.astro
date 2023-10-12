@@ -2,18 +2,16 @@
 import { Image } from 'astro:assets';
 import SectionTitle from './SectionTitle.astro';
 import ReadMoreButtonAccordion from './ReadMoreButtonAccordion.astro';
-import downArrowIcon from "@images/down-arrow-icon.svg";
 import globePlaceholder from "@images/globe-placeholder.png";
 
 type Props = {
-  toggleId: string;
   sectionTitle: string;
   heading: string;
   content: string;
   readMoreContent: string;
 };
 
-const { sectionTitle, heading, content, readMoreContent, toggleId } = Astro.props;
+const { sectionTitle, heading, content, readMoreContent } = Astro.props;
 
 
 ---
@@ -35,9 +33,7 @@ const { sectionTitle, heading, content, readMoreContent, toggleId } = Astro.prop
     <p>{content}</p>
   </div>
   <ReadMoreButtonAccordion
-    toggleId={toggleId}
     content={readMoreContent}
     className="bg-transparent text-go2-blue border border-go2-blue"
-    icon={downArrowIcon}
   />
 </>

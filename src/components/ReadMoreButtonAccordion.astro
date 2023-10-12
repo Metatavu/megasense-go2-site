@@ -1,16 +1,15 @@
 ---
 import { Image } from "astro:assets";
+import upArrowIcon from "@images/up-arrow-icon.svg"
+import downArrowIcon from "@images/down-arrow-icon.svg";
 
 type Props = {
-  toggleId: string;
   content: string;
-  icon?: ImageMetadata;
   className?: string;
 };
 
-const { icon, className, content, toggleId } = Astro.props;
+const { className, content } = Astro.props;
 
-// TODO: button click should toggle hidden class, transform the button contents to read less and change the icon.
 
 ---
 <>
@@ -21,23 +20,39 @@ const { icon, className, content, toggleId } = Astro.props;
     {content}
   </p>
   <button
-    id={`${toggleId}-toggle-button`}
-    class="rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
+    class="toggle-button rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
     class:list={[
       className,
     ]}
   >
     Read more
-    {icon && <Image src={icon} alt=""/>}
+    <Image class="down-arrow-icon" src={downArrowIcon} alt=""/>
+    <Image class="up-arrow-icon hidden" src={upArrowIcon} alt=""/>
   </button>
 
-  <!-- <script>
-    const button = document.getElementById(`${toggleId}`)!;
+  <!-- TODO: The below only works on the first page loaded that contains the component -->
+  <script>
+    const buttons = document.querySelectorAll(".toggle-button");
+    const downArrowIcon = document.querySelector(".down-arrow-icon") as HTMLElement;
+    const upArrowIconOriginal = document.querySelector(".up-arrow-icon.hidden") as HTMLElement;
 
-    button.addEventListener("click", (event) => {
-      console.log("clicked");
-      const contentElement = document.getElementById("hidden-content")!;
-      contentElement.classList.toggle("hidden");
+    const upArrowIcon = upArrowIconOriginal.cloneNode(true);
+    upArrowIcon.classList.toggle("hidden");
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const contentElement = button.previousSibling;
+        contentElement.classList.toggle("hidden");
+
+        button.innerText === "READ MORE"
+          ? button.innerText = "READ LESS"
+          : button.innerText = "READ MORE";
+
+        button.innerText === "READ MORE"
+          ? button.appendChild(downArrowIcon)
+          : button.appendChild(upArrowIcon);
+      })
     })
-  </script> -->
+
+  </script>
 </>
