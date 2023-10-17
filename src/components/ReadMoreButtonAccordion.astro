@@ -32,16 +32,16 @@ const { className, content } = Astro.props;
 
   <!-- TODO: The below only works on the first page loaded that contains the component -->
   <script>
-    const buttons = document.querySelectorAll(".toggle-button");
+    const buttons = [...document.querySelectorAll(".toggle-button")] as HTMLElement[];
     const downArrowIcon = document.querySelector(".down-arrow-icon") as HTMLElement;
     const upArrowIconOriginal = document.querySelector(".up-arrow-icon.hidden") as HTMLElement;
 
-    const upArrowIcon = upArrowIconOriginal.cloneNode(true);
+    const upArrowIcon = upArrowIconOriginal.cloneNode(true) as HTMLElement;
     upArrowIcon.classList.toggle("hidden");
 
     buttons.forEach((button) => {
       button.addEventListener("click", () => {
-        const contentElement = button.previousSibling;
+        const contentElement = button.previousSibling as HTMLElement;
         contentElement.classList.toggle("hidden");
 
         button.innerText === "READ MORE"

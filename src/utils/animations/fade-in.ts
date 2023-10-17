@@ -1,3 +1,4 @@
+// TODO: This only seems to work on the initially loaded page and after refresh, not after navigation.
 /**
  * Script that detects when an element is completely visible on screen and changes its opacity and position accordingly.
  */

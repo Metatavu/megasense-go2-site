@@ -9,14 +9,13 @@ import exposureStatistics from "@images/exposure-statistics.png";
 import healthHeroImage from "@images/health-hero-image.png";
 import scienceHeroImage from "@images/science-hero-image.png";
 import supportHeroImage from "@images/support-hero-image.png";
-import muteIcon from "@images/mute-icon.svg";
 import ActionButton from "@components/ActionButton.astro";
 import appIcon from "@images/go2-app-icon.svg";
-import pauseIcon from "@images/pause-icon.svg";
 import AccordionItem from "@components/AccordionItem.astro";
 import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
-// import GO2Explainer from "@video/GO2-Explainer.mp4";
+import GO2Explainer from "@video/GO2-Explainer.mp4";
+import Video from "@components/Video.astro";
 
 ---
 
@@ -24,8 +23,9 @@ import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 	<Section id="home" className="pb-0 pt-9">
 	</Section>
 	<!-- TODO: Needs positioning with the header, height setting,  webkit-fill as per design? -->
-	<!-- <Section id="video" className="pt-0">
-		<figure class="w-screen">
+	<Section id="video-section" className="pt-0">
+		<Video />
+		<!-- <figure class="w-screen">
 			<video
 				id="video"
 				controls
@@ -41,34 +41,10 @@ import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 					default
 				/>
 			</video>
-			<ul
-				id="video-controls"
-				class="flex flex-row w-screen justify-around hidden"
-			>
-				<li>
-					<button id="playpause" type="button">
-						<Image src={pauseIcon} alt="pause icon" />
-					</button>
-				</li>
-				<li>
-					<progress
-						id="progress"
-						value="5"
-						max="100"
-						class="h-1"
-					>
-						<span id="progress-bar"></span>
-					</progress>
-				</li>
-				<li>
-					<button id="mute" type="button">
-						<Image src={muteIcon} alt="mute icon" />
-					</button>
-				</li>
-			</ul>
-		</figure>
-	</Section> -->
-	<Section id="features">
+			<VideoControls />
+		</figure> -->
+	</Section>
+	<Section id="features" className="scroll-mt-8">
 		<SectionTitle title="Features"/>
 		<FeatureCard className="bg-pollutants justify-end">
 			<FeatureInfo

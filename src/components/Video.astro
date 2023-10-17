@@ -1,0 +1,136 @@
+---
+import { Image } from "astro:assets";
+import pauseIcon from "@images/pause-icon.svg";
+import muteIcon from "@images/mute-icon.svg";
+import downArrow from "@images/down-arrow-icon-grey.svg";
+import GO2Explainer from "@video/GO2-Explainer.mp4";
+
+
+---
+
+<figure class="w-screen relative">
+  <video
+    id="video"
+    controls
+    preload="metadata"
+    poster="/src/images/video-poster.png"
+  >
+    <source src={GO2Explainer} type="video/mp4" />
+    <track
+      label="English"
+      kind="subtitles"
+      srclang="en"
+      src="/src/video/GO2-Explainer-subtitles.vtt"
+      default
+    />
+  </video>
+  <ul
+    id="video-controls"
+    class="absolute bottom-20 flex w-screen justify-around"
+  >
+    <li class="flex items-center">
+      <button id="playpause" type="button">
+        <Image id="play-icon" src={muteIcon} alt="play icon" />
+        <!-- TODO: This should be replaced with Play icon when available. -->
+        <Image id="pause-icon" src={pauseIcon} class="hidden" alt="pause icon" />
+      </button>
+    </li>
+    <li class="flex items-center">
+      <progress
+        id="progress"
+        value="0"
+        class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue"
+      >
+        <span id="progress-bar"></span>
+      </progress>
+    </li>
+    <li class="flex items-center">
+      <button id="mute" type="button">
+        <Image id="mute-icon" src={muteIcon} alt="mute icon" />
+      </button>
+    </li>
+  </ul>
+  <div class="absolute bottom-10 flex w-screen justify-around">
+    <a id="scroll-down-button" href="#features">
+      <Image src={downArrow} alt="down arrow icon" />
+    </a>
+  </div>
+</figure>
+
+
+<script>
+  const supportsVideo = !!document.createElement("video").canPlayType;
+  if (supportsVideo) {
+    const video = document.getElementById("video") as HTMLVideoElement;
+
+    video.controls = false;
+
+    const playpause = document.getElementById("playpause") as HTMLElement;
+    const progress = document.getElementById("progress") as HTMLProgressElement;
+    const progressBar = document.getElementById("progress-bar") as HTMLProgressElement;
+    const mute = document.getElementById("mute") as HTMLElement;
+    const playIcon = document.getElementById("play-icon") as HTMLElement;
+    const pauseIconOriginal = document.getElementById("pause-icon") as HTMLElement;
+    const muteIcon = document.getElementById("mute-icon") as HTMLElement;
+    const scrollDownButton = document.getElementById("scroll-down-button") as HTMLElement;
+
+    const pauseIcon = pauseIconOriginal.cloneNode(true) as HTMLElement;
+    pauseIcon.classList.toggle("hidden");
+
+    playpause.addEventListener("click", (e) => {
+      if (video.paused || video.ended) {
+        playpause.innerHTML = "";
+        playpause.appendChild(pauseIcon);
+
+        video.play();
+      } else {
+        video.pause();
+        playpause.innerHTML = "";
+        playpause.appendChild(playIcon);
+      }
+    });
+
+    video.addEventListener("loadedmetadata", () => {
+      progress.setAttribute("max", video.duration.toString());
+    });
+
+    video.addEventListener("timeupdate", () => {
+      progress.value = video.currentTime;
+      progressBar.style.width = `${Math.floor(
+        (video.currentTime * 100) / video.duration,
+      )}%`;
+    });
+
+    video.addEventListener("timeupdate", () => {
+      if (!progress.getAttribute("max"))
+        progress.setAttribute("max", video.duration.toString());
+      progress.value = video.currentTime;
+      progressBar.style.width = `${Math.floor(
+        (video.currentTime * 100) / video.duration,
+      )}%`;
+    });
+
+    mute.addEventListener("click", () => {
+      if (video.muted) {
+        video.muted = false;
+        mute.innerHTML = "";
+        mute.appendChild(muteIcon);
+      } else {
+        video.muted = true;
+        // TODO: Need muted icon
+        mute.innerHTML = "M";
+      }
+    });
+
+    scrollDownButton.addEventListener("click", () => {
+      const targetElement = document.getElementById('features');
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block:"start",
+        });
+      }
+    })
+  }
+
+</script>
