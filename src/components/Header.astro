@@ -56,20 +56,19 @@ const secondaryNavigationLinks = {
 ---
 <main-navigation class="group">
   <header class="bg-go2-blue-light fixed w-full z-50">
-    <!-- TODO: Adjusting the header seems to have affected the feature card animations- check-->
-    <div class="px-6 pt-10 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4">
+    <div class="px-6 pt-10 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4">
       <div class="flex flex-row justify-start">
         <img
           src={logo.src}
           alt="Go2 Logo"
-          class="h-8 motion-safe:transition-all duration-300 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
+          class="h-8 motion-safe:transition-all duration-900 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
         />
         <p class=" w-1/2 text-[10px] text-go2-blue font-bold ml-1">Powered by MegaSense</p>
       </div>
       <ActionLink
         dense
         title="Install"
-        className="group-data-[open]:opacity-0 motion-safe:transition-all duration-300 ease-out"
+        className="group-data-[open]:opacity-0 motion-safe:transition-all duration-900 ease-out"
       />
       <button
         menu-button
@@ -77,9 +76,9 @@ const secondaryNavigationLinks = {
         title="Open menu"
         class="flex flex-col h-15 w-10 justify-center items-center"
       >
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
+        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
       </button>
     </div>
     <div class="overflow-hidden h-0 group-data-[open]:h-4/5 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
@@ -136,12 +135,6 @@ const secondaryNavigationLinks = {
       } else {
         this.removeAttribute("data-not-on-top");
       }
-    }
-
-    get navigationBar() {
-      const navigationBar = this.querySelector("[navigation-bar]");
-      if (!navigationBar) throw Error("No header found");
-      return navigationBar;
     }
 
     get menuButton() {

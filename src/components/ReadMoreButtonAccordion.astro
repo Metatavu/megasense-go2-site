@@ -10,49 +10,47 @@ type Props = {
 
 const { className, content } = Astro.props;
 
-
 ---
-<>
-  <p
-    id="hidden-content"
-    class="my-4 hidden"
-  >
-    {content}
-  </p>
-  <button
-    class="toggle-button rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
-    class:list={[
-      className,
-    ]}
-  >
-    Read more
-    <Image class="down-arrow-icon" src={downArrowIcon} alt=""/>
-    <Image class="up-arrow-icon hidden" src={upArrowIcon} alt=""/>
-  </button>
 
-  <!-- TODO: The below only works on the first page loaded that contains the component -->
-  <script>
-    const buttons = [...document.querySelectorAll(".toggle-button")] as HTMLElement[];
-    const downArrowIcon = document.querySelector(".down-arrow-icon") as HTMLElement;
-    const upArrowIconOriginal = document.querySelector(".up-arrow-icon.hidden") as HTMLElement;
+<p
+  id="hidden-content"
+  class="my-4 hidden"
+>
+  {content}
+</p>
+<button
+  class="toggle-button rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
+  class:list={[
+    className,
+  ]}
+>
+  Read more
+  <Image class="down-arrow-icon" src={downArrowIcon} alt=""/>
+  <Image class="up-arrow-icon hidden" src={upArrowIcon} alt=""/>
+</button>
 
-    const upArrowIcon = upArrowIconOriginal.cloneNode(true) as HTMLElement;
-    upArrowIcon.classList.toggle("hidden");
+<!-- TODO: The below only works on the first page loaded that contains the component -->
+<script>
+  const buttons = [...document.querySelectorAll(".toggle-button")] as HTMLElement[];
+  const downArrowIcon = document.querySelector(".down-arrow-icon") as HTMLElement;
+  const upArrowIconOriginal = document.querySelector(".up-arrow-icon.hidden") as HTMLElement;
 
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const contentElement = button.previousSibling as HTMLElement;
-        contentElement.classList.toggle("hidden");
+  const upArrowIcon = upArrowIconOriginal.cloneNode(true) as HTMLElement;
+  upArrowIcon.classList.toggle("hidden");
 
-        button.innerText === "READ MORE"
-          ? button.innerText = "READ LESS"
-          : button.innerText = "READ MORE";
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const contentElement = button.previousSibling as HTMLElement;
+      contentElement.classList.toggle("hidden");
 
-        button.innerText === "READ MORE"
-          ? button.appendChild(downArrowIcon)
-          : button.appendChild(upArrowIcon);
-      })
+      button.innerText === "READ MORE"
+        ? button.innerText = "READ LESS"
+        : button.innerText = "READ MORE";
+
+      button.innerText === "READ MORE"
+        ? button.appendChild(downArrowIcon)
+        : button.appendChild(upArrowIcon);
     })
+  })
 
-  </script>
-</>
+</script>

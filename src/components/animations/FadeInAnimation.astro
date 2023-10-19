@@ -1,0 +1,35 @@
+
+<fade-in-animation class="opacity-0 translate-y-8 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-in-out motion-reduce:opacity-100 motion-reduce:translate-y-0">
+  <slot/>
+</fade-in-animation>
+
+<script>
+  class FadeInAnimation extends HTMLElement {
+    constructor() {
+      super();
+      /**
+       * Script that detects when an element is completely visible on screen and changes its opacity and position accordingly.
+       */
+      const fadeInDetector = new IntersectionObserver((elements, observer) => {
+        elements.forEach((entry) => {
+          const htmlElement = entry.target as HTMLElement;
+
+          if (entry.intersectionRatio === 1) {
+            htmlElement.style.setProperty("opacity", "1");
+            htmlElement.style.setProperty("transform", "translate3d(0px, 0px, 0px)");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        root: null,
+        rootMargin: "-15% 0px -15% 0px",
+        threshold: [0, 1],
+      });
+
+      if (window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === false) {
+        fadeInDetector.observe(this);
+      }
+    }
+  }
+  customElements.define('fade-in-animation', FadeInAnimation);
+</script>

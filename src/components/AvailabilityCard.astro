@@ -3,28 +3,29 @@ import { Image } from 'astro:assets';
 import SectionTitle from './SectionTitle.astro';
 import ActionButton from './ActionButton.astro';
 import globePlaceholder from "@images/globe-placeholder.png";
+import ScrollInAnimation from './animations/ScrollInAnimation.astro';
 
 ---
 
-<>
-  <SectionTitle
-    title="Availability"
-    className="text-go2-blue"
-  />
-  <Image
-    src={globePlaceholder}
-    alt="Globe placeholder"
-    class="w-4/12 max-w-none"
-  />
-  <h3 class="text-2xl text-black text-center">
+<SectionTitle
+  title="Availability"
+  className="text-go2-blue"
+/>
+<Image
+  src={globePlaceholder}
+  alt="Globe placeholder"
+  class="w-4/12 max-w-none"
+/>
+<ScrollInAnimation>
+  <h3 class="text-2xl text-black text-center mb-5">
     Currently available in London
   </h3>
   <div class="flex flex-col gap-4 text-black text-center">
     <p>If you live outside London, don’t worry. We’re constantly expanding coverage.</p>
     <p>Join the waitlist to be the first know.</p>
   </div>
-  <ActionButton
-    title="Join the waiting list"
-    className="bg-go2-blue text-white"
-  />
-</>
+</ScrollInAnimation>
+<ActionButton
+  title="Join the waiting list"
+  className="bg-go2-blue text-white"
+/>

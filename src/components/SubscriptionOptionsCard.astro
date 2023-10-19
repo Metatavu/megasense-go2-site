@@ -3,26 +3,27 @@
 import SectionTitle from './SectionTitle.astro';
 import ActionButton from './ActionButton.astro';
 import downloadIcon from "@images/download-icon.svg";
+import FadeInAnimation from './animations/FadeInAnimation.astro';
 
 ---
 
-<>
-  <SectionTitle
-    title="Subscription options"
-    className="text-go2-blue"
-  />
-  <h3 class="text-2xl text-black text-center">
-    Try for free, get Pro for the full experience
-  </h3>
-  <div class="flex flex-col gap-4 text-black text-center">
-    <p>Start with a 3-month free trial and if you enjoy using GO2 – and we think you will – switch to a Pro subscription for £9.90/mo or £99.90/year.*</p>
-  </div>
-  <ActionButton
-    title="Download for free"
-    className="bg-go2-blue text-white"
-    icon={downloadIcon}
-  />
+<SectionTitle
+  title="Subscription options"
+  className="text-go2-blue"
+/>
+<h3 class="text-2xl text-black text-center">
+  Try for free, get Pro for the full experience
+</h3>
+<div class="flex flex-col gap-4 text-black text-center">
+  <p>Start with a 3-month free trial and if you enjoy using GO2 – and we think you will – switch to a Pro subscription for £9.90/mo or £99.90/year.*</p>
+</div>
+<ActionButton
+  title="Download for free"
+  className="bg-go2-blue text-white"
+  icon={downloadIcon}
+/>
+<FadeInAnimation>
   <div class="flex flex-col gap-4 text-gray-500 text-xs">
     <p>* Legal boilerplate about the price and how it’s charged. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
   </div>
-</>
+</FadeInAnimation>

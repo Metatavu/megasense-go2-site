@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import SectionTitle from './SectionTitle.astro';
 import ReadMoreButtonAccordion from './ReadMoreButtonAccordion.astro';
 import globePlaceholder from "@images/globe-placeholder.png";
+import ScrollInAnimation from './animations/ScrollInAnimation.astro';
 
 type Props = {
   sectionTitle: string;
@@ -13,27 +14,26 @@ type Props = {
 
 const { sectionTitle, heading, content, readMoreContent } = Astro.props;
 
-
 ---
 
-<>
-  <SectionTitle
-    title={sectionTitle}
-    className="text-go2-blue"
-  />
-  <Image
-    src={globePlaceholder}
-    alt="Globe placeholder"
-    class="w-4/12 max-w-none"
-  />
-  <h3 class="text-2xl text-black text-center">
+<SectionTitle
+  title={sectionTitle}
+  className="text-go2-blue"
+/>
+<Image
+  src={globePlaceholder}
+  alt="Globe placeholder"
+  class="w-4/12 max-w-none"
+/>
+<ScrollInAnimation>
+  <h3 class="text-2xl text-black text-center mb-5">
     {heading}
   </h3>
   <div class="flex flex-col gap-4 text-black text-center">
     <p>{content}</p>
   </div>
-  <ReadMoreButtonAccordion
-    content={readMoreContent}
-    className="bg-transparent text-go2-blue border border-go2-blue"
-  />
-</>
+</ScrollInAnimation>
+<ReadMoreButtonAccordion
+  content={readMoreContent}
+  className="bg-transparent text-go2-blue border border-go2-blue"
+/>

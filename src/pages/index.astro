@@ -16,6 +16,7 @@ import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 import GO2Explainer from "@video/GO2-Explainer.mp4";
 import Video from "@components/Video.astro";
+import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 
 ---
 
@@ -81,14 +82,16 @@ import Video from "@components/Video.astro";
 			alt="Health illustration placeholder"
 			class="w-full max-w-none max-h-home-hero-image"
 		/>
-		<h3 class="text-2xl">
-			Improve health, increase happiness
-		</h3>
-		<div class="flex flex-col gap-4">
-			<p>Air pollutants lead to poor health and reduced self esteem.</p>
-			<p>Pollution lowers productivity levels and income earnings.</p>
-			<p>Less environmental stress leads to less distress and better life satisfaction.</p>
-		</div>
+		<ScrollInAnimation>
+			<h3 class="text-2xl text-center mb-5">
+				Improve health, increase happiness
+			</h3>
+			<div class="flex flex-col gap-4">
+				<p>Air pollutants lead to poor health and reduced self esteem.</p>
+				<p>Pollution lowers productivity levels and income earnings.</p>
+				<p>Less environmental stress leads to less distress and better life satisfaction.</p>
+			</div>
+		</ScrollInAnimation>
 		<ActionButton
 			title="Learn more"
 			href="/health-and-happiness"
@@ -107,14 +110,16 @@ import Video from "@components/Video.astro";
 			alt="Science illustration placeholder 2"
 			class="w-full max-w-none max-h-home-hero-image"
 		/>
-		<h3 class="text-2xl text-white">
-			Obsessed with scientific accuracy
-		</h3>
-		<div class="flex flex-col gap-4 text-white">
-			<p>Uniquely accurate, evolving AI model combining traffic, emissions and weather data.</p>
-			<p>More compounds added constantly to model indoor and outdoor environments.</p>
-			<p>Finland-based international team with 2000+ top-level peer-reviewed papers.</p>
-		</div>
+		<ScrollInAnimation>
+			<h3 class="text-2xl text-white text-center mb-5">
+				Obsessed with scientific accuracy
+			</h3>
+			<div class="flex flex-col gap-4 text-white">
+				<p>Uniquely accurate, evolving AI model combining traffic, emissions and weather data.</p>
+				<p>More compounds added constantly to model indoor and outdoor environments.</p>
+				<p>Finland-based international team with 2000+ top-level peer-reviewed papers.</p>
+			</div>
+		</ScrollInAnimation>
 		<ActionButton
 			title="Learn more"
 			className="bg-go2-blue-light text-go2-blue"
@@ -158,10 +163,12 @@ import Video from "@components/Video.astro";
 		<h3 class="text-2xl">
 			How can we help you
 		</h3>
-		<div class="flex flex-col gap-4">
-			<p>We’ve collected some of the most common questions and their answers below.</p>
-			<p> If you can’t find what you’re looking for, you can always contact us.</p>
-		</div>
+		<ScrollInAnimation>
+			<div class="flex flex-col gap-4">
+				<p>We’ve collected some of the most common questions and their answers below.</p>
+				<p> If you can’t find what you’re looking for, you can always contact us.</p>
+			</div>
+		</ScrollInAnimation>
 		<ActionButton title="Contact support" />
 	</Section>
 	<Section
