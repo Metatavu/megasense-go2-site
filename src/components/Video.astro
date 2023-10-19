@@ -5,15 +5,18 @@ import muteIcon from "@images/mute-icon.svg";
 import downArrow from "@images/down-arrow-icon-grey.svg";
 import GO2Explainer from "@video/GO2-Explainer.mp4";
 
-
 ---
-<!-- TODO: Autoplay, fit the video within the screen/ reduce default height -->
+
+<!-- TODO: fit the video within the screen/ reduce default height -->
 <figure class="w-screen relative">
+  <!-- Muted attribute required for autoplay to work in chrome -->
   <video
     id="video"
     controls
     preload="metadata"
     poster="/src/images/video-poster.png"
+    autoplay
+    muted
   >
     <source src={GO2Explainer} type="video/mp4" />
     <track
@@ -46,6 +49,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
     </li>
     <li class="flex items-center">
       <button id="mute" type="button">
+        <!-- TODO: If Autoplay is implemented requiring mute, this icon needs updating -->
         <Image id="mute-icon" src={muteIcon} alt="mute icon" />
       </button>
     </li>
