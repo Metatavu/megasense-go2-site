@@ -1,14 +1,16 @@
 ---
 import { Image } from "astro:assets";
 import pauseIcon from "@images/pause-icon.svg";
+import playIcon from "@images/play-icon.svg";
 import muteIcon from "@images/mute-icon.svg";
+import iconVolumeOff from "@images/icon-volume-off.svg";
 import downArrow from "@images/down-arrow-icon-grey.svg";
-// import GO2Explainer from "@video/GO2-Explainer.mp4";
+import GO2Explainer from "@video/GO2-Explainer.mp4";
 
 ---
 
-<!-- TODO: fit the video within the screen/ reduce default height -->
-<figure class="w-screen relative">
+<!-- TODO: Video styling to finalize -->
+<figure class="w-screen relative flex items-center justify-center">
   <!-- Muted attribute required for autoplay to work in chrome -->
   <video
     id="video"
@@ -17,6 +19,7 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
     poster="/src/images/video-poster.png"
     autoplay
     muted
+    class="h-[85vh]"
   >
     <!-- <source src={GO2Explainer} type="video/mp4" /> -->
     <track
@@ -33,9 +36,9 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
   >
     <li class="flex items-center">
       <button id="playpause" type="button">
-        <Image id="play-icon" src={muteIcon} alt="play icon" />
-        <!-- TODO: This should be replaced with Play icon when available. -->
-        <Image id="pause-icon" src={pauseIcon} class="hidden" alt="pause icon" />
+        <Image id="pause-icon" src={pauseIcon} alt="pause icon" />
+        <!-- TODO: Fix icon color and sizing? -->
+        <Image id="play-icon" src={playIcon} class="hidden" alt="play icon" />
       </button>
     </li>
     <li class="flex items-center">
@@ -49,8 +52,9 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
     </li>
     <li class="flex items-center">
       <button id="mute" type="button">
-        <!-- TODO: If Autoplay is implemented requiring mute, this icon needs updating -->
-        <Image id="mute-icon" src={muteIcon} alt="mute icon" />
+        <Image id="mute-icon" src={muteIcon} class="hidden" alt="mute icon" />
+        <!-- TODO: Fix icon color and sizing? -->
+        <Image id="icon-volume-off" src={iconVolumeOff} alt="volume off icon" />
       </button>
     </li>
   </ul>
@@ -73,19 +77,21 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
     const progress = document.getElementById("progress") as HTMLProgressElement;
     const progressBar = document.getElementById("progress-bar") as HTMLProgressElement;
     const mute = document.getElementById("mute") as HTMLElement;
-    const playIcon = document.getElementById("play-icon") as HTMLElement;
-    const pauseIconOriginal = document.getElementById("pause-icon") as HTMLElement;
-    const muteIcon = document.getElementById("mute-icon") as HTMLElement;
+    const pauseIcon = document.getElementById("pause-icon") as HTMLElement;
+    const playIconHidden = document.getElementById("play-icon") as HTMLElement;
+    const muteIconHidden = document.getElementById("mute-icon") as HTMLElement;
+    const volumeOffIcon = document.getElementById("icon-volume-off") as HTMLElement;
     const scrollDownButton = document.getElementById("scroll-down-button") as HTMLElement;
 
-    const pauseIcon = pauseIconOriginal.cloneNode(true) as HTMLElement;
-    pauseIcon.classList.toggle("hidden");
+    const playIcon = playIconHidden.cloneNode(true) as HTMLElement;
+    const muteIcon = muteIconHidden.cloneNode(true) as HTMLElement;
+    playIcon.classList.toggle("hidden");
+    muteIcon.classList.toggle("hidden");
 
-    playpause.addEventListener("click", (e) => {
+    playpause.addEventListener("click", () => {
       if (video.paused || video.ended) {
         playpause.innerHTML = "";
         playpause.appendChild(pauseIcon);
-
         video.play();
       } else {
         video.pause();
@@ -121,8 +127,8 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
         mute.appendChild(muteIcon);
       } else {
         video.muted = true;
-        // TODO: Need muted icon
-        mute.innerHTML = "M";
+        mute.innerHTML = "";
+        mute.appendChild(volumeOffIcon);
       }
     });
 
