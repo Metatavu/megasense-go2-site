@@ -4,7 +4,7 @@ import Section from "@components/Section.astro";
 import SectionTitle from "@components/SectionTitle.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
-import featuresHeroImage from "@images/features-hero-image.png";
+import featuresHero from "@images/features-hero.png";
 import pollutants from "public/pollutants.png"
 import routeFinding from "@images/route-finding.png"
 import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
@@ -13,15 +13,15 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 ---
 
 <PageLayout title="GO2 - Features">
-  <Section id="features-page">
+  <Section id="features-page" className="bg-go2-blue-light pb-[0px]">
 	</Section>
   <Section
 		id="features-start"
-		className="bg-white"
+		className="bg-go2-blue-light"
 	>
 		<Image
-			src={featuresHeroImage}
-			alt="Features illustration placeholder"
+			src={featuresHero}
+			alt="Birds, measurement dial, route planning"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
@@ -36,7 +36,7 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
     <div class="h-[50vh] overflow-hidden">
       <Image
         src={pollutants}
-        alt="Pollutants"
+        alt="Pollutants represented on a map"
         class="w-full max-w-none"
       />
     </div>
@@ -86,7 +86,7 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
     <div class="h-[50vh] overflow-hidden">
       <Image
         src={routeFinding}
-        alt="Science illustration placeholder 2"
+        alt="Map with a route shown"
       />
     </div>
     <FadeInAnimation>

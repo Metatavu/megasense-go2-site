@@ -6,9 +6,9 @@ import FeatureCard from "@components/FeatureCard.astro";
 import FeatureInfo from "@components/FeatureInfo.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
-import healthHeroImage from "@images/health-hero-image.png";
-import scienceHeroImage from "@images/science-hero-image.png";
-import supportHeroImage from "@images/support-hero-image.png";
+import healthHero from "@images/health-hero.png";
+import scienceHero from "@images/science-hero.png";
+import supportHero from "@images/support-hero.png";
 import ActionButton from "@components/ActionButton.astro";
 import appIcon from "@images/go2-app-icon.svg";
 import AccordionItem from "@components/AccordionItem.astro";
@@ -20,9 +20,9 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 ---
 
 <PageLayout title="GO2 - Home">
-	<Section id="home" className="pt-2">
+	<Section id="home">
 	</Section>
-	<Section id="video-section" className="pt-[0px]">
+	<Section id="video-section" className="pt-0">
 		<!-- <Video /> -->
 	</Section>
 	<Section id="features" className="scroll-mt-8">
@@ -58,8 +58,8 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 	>
 		<SectionTitle title="Health and well-being"/>
 		<Image
-			src={healthHeroImage}
-			alt="Health illustration placeholder"
+			src={healthHero}
+			alt="Birds singing"
 			class="w-full max-w-none max-h-home-hero-image"
 		/>
 		<ScrollInAnimation>
@@ -86,8 +86,8 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 			className="text-white"
 		/>
 		<Image
-			src={scienceHeroImage}
-			alt="Science illustration placeholder 2"
+			src={scienceHero}
+			alt="Cloud and connectivity"
 			class="w-full max-w-none max-h-home-hero-image"
 		/>
 		<ScrollInAnimation>
@@ -136,8 +136,8 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 	>
 		<SectionTitle title="Support"/>
 		<Image
-			src={supportHeroImage}
-			alt="Support illustration placeholder"
+			src={supportHero}
+			alt="Jigsaw pieces"
 			class="w-full max-w-none max-h-home-hero-image"
 		/>
 		<h3 class="text-2xl">

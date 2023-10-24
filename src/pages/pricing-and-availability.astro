@@ -2,7 +2,7 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import scienceHeroImage from "@images/science-hero-image.png";
+import pricingHero from "@images/pricing-hero.png";
 import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 
@@ -11,17 +11,16 @@ import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 <PageLayout title="GO2 - Pricing and availability">
   <Section
     id="pricing-page"
-    className="pb-10 bg-go2-blue-light"
+    className="bg-go2-blue-light pb-[0px]"
   >
 	</Section>
   <Section
 		id="pricing"
 		className="bg-go2-blue-light"
 	>
-  <!-- TODO: update image -->
 		<Image
-			src={scienceHeroImage}
-			alt="Science illustration placeholder"
+			src={pricingHero}
+			alt="Bird with a key"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
@@ -33,13 +32,13 @@ import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 	</Section>
   <Section
     id="availability-2"
-    className="bg-go2-blue-light"
+    className="bg-white"
   >
     <AvailabilityCard/>
   </Section>
   <Section
 		id="subscription-2"
-		className="bg-clouds-2 bg-cover bg-top"
+		className="bg-go2-blue-light"
 	>
     <SubscriptionOptionsCard/>
   </Section>

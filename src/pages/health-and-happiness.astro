@@ -2,15 +2,18 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import healthHeroImage from "@images/health-hero-image.png";
-import GenericGlobeCard from "@components/GenericGlobeCard.astro";
+import healthHero from "@images/health-hero.png";
+import pollution from "@images/pollution.png";
+import heart from "@images/heart.png";
+import climateChange from "@images/climate-change.png";
+import GenericReadMoreCard from "@components/GenericReadMoreCard.astro";
 
 ---
 
 <PageLayout title="GO2 - Health">
   <Section
     id="health-page"
-    className="pb-10 bg-go2-blue-light"
+    className="pb-[0px] bg-go2-blue-light"
   >
 	</Section>
   <Section
@@ -18,8 +21,8 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
 		className="bg-go2-blue-light"
 	>
 		<Image
-			src={healthHeroImage}
-			alt="Health illustration placeholder"
+			src={healthHero}
+			alt="Birds singing"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
@@ -33,7 +36,9 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
     id="pollution"
     className="bg-white"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={pollution}
+      altText="Test tube"
       sectionTitle="Pollution"
       heading="What are the pollutants that make for bad air?"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
@@ -44,7 +49,9 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
     id="health"
     className="bg-go2-blue-light"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={heart}
+      altText="Heart"
       sectionTitle="Health"
       heading="Fresh air, health and happiness"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
@@ -55,7 +62,9 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
     id="climate-change"
     className="bg-white"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={climateChange}
+      altText="Global weather"
       sectionTitle="Climate change"
       heading="Extreme weather events and air quality"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."

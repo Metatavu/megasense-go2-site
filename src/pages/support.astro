@@ -2,11 +2,10 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import supportHeroImage from "@images/support-hero-image.png";
-import AccordionItem from "@components/AccordionItem.astro";
+import supportHero from "@images/support-hero.png";
 import SectionTitle from "@components/SectionTitle.astro";
 import ActionButton from "@components/ActionButton.astro";
-import globePlaceholder from "@images/globe-placeholder.png";
+import supportSpeechBubble from "@images/support-speech-bubble.png";
 import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 
 ---
@@ -14,16 +13,16 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 <PageLayout title="GO2 - Support">
   <Section
     id="support-page"
-    className="pb-10"
+    className="bg-go2-blue-light pb-[0px]"
   >
 	</Section>
   <Section
 		id="support-start"
-		className="bg-white"
+		className="bg-go2-blue-light"
 	>
 		<Image
-			src={supportHeroImage}
-			alt="Science illustration placeholder"
+			src={supportHero}
+			alt="Jigsaw pieces"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
@@ -34,15 +33,6 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 		</div>
 	</Section>
   <Section
-    id="support-faq"
-  >
-  <!-- TODO: Should this have the full faq? -->
-    <AccordionItem
-      summary="What are PM2.5, PM10, CO2 and NOx?"
-      content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
-    />
-  </Section>
-  <Section
     id="customer-support"
     className="bg-white"
   >
@@ -51,12 +41,11 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
       className="text-go2-blue"
     />
     <Image
-      src={globePlaceholder}
-      alt="Globe placeholder"
-      class="w-4/12 max-w-none"
+      src={supportSpeechBubble}
+      alt="Speech bubble"
     />
     <FadeInAnimation>
-    <h3 class="text-2xl text-black text-center">
+    <h3 class="text-2xl text-black text-center mb-5">
       How can we help you?
     </h3>
     <div class="flex flex-col gap-4 text-black text-center">

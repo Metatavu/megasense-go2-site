@@ -2,24 +2,27 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import scienceHeroImage from "@images/science-hero-image.png";
-import GenericGlobeCard from "@components/GenericGlobeCard.astro";
+import scienceHero from "@images/science-hero.png";
+import microscope from "@images/microscope.png";
+import dataCloud from "@images/data-cloud.png";
+import team from "@images/team.png";
+import GenericReadMoreCard from "@components/GenericReadMoreCard.astro";
 
 ---
 
 <PageLayout title="GO2 - Science">
   <Section
     id="science-page"
-    className="pb-10"
+    className="bg-go2-blue-light pb-[0px]"
   >
 	</Section>
   <Section
 		id="science-start"
-		className="bg-white"
+		className="bg-go2-blue-light"
 	>
 		<Image
-			src={scienceHeroImage}
-			alt="Science illustration placeholder"
+			src={scienceHero}
+			alt="Cloud and connectivity"
 			class="w-full max-w-none max-h-hero-image"
 		/>
 		<h3 class="text-2xl">
@@ -31,9 +34,11 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
 	</Section>
   <Section
     id="megasense-method"
-    className="bg-go2-blue-light"
+    className="bg-white"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={microscope}
+      altText="Microscope"
       sectionTitle="The Megasense Method"
       heading="Obsessed with scientific accuracy"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
@@ -42,9 +47,11 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
   </Section>
   <Section
     id="data-cloud"
-    className="bg-white"
+    className="bg-go2-blue-light"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={dataCloud}
+      altText="Cloud"
       sectionTitle="Data cloud"
       heading="Real-time, real-aworld air quality data "
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
@@ -53,9 +60,11 @@ import GenericGlobeCard from "@components/GenericGlobeCard.astro";
   </Section>
   <Section
     id="team"
-    className="bg-go2-blue-light"
+    className="bg-white"
   >
-    <GenericGlobeCard
+    <GenericReadMoreCard
+      image={team}
+      altText="Stack of paperwork"
       sectionTitle="Team"
       heading="2,000+ peer-reviewed papers, 5 nationalities and 1 goal"
       content="Lorem ipsum dolorem ipso facto. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid."
