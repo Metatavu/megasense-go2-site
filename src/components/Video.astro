@@ -10,7 +10,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
 ---
 
 <!-- TODO: Video styling to finalize -->
-<figure class="w-screen relative flex items-center justify-center">
+<figure class="w-screen relative flex items-center justify-center bg-">
   <!-- Muted attribute required for autoplay to work in chrome -->
   <video
     id="video"
@@ -19,7 +19,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
     poster="/src/images/video-poster.png"
     autoplay
     muted
-    class="h-[85vh]"
+    class="h-[75vh]"
   >
     <!-- <source src={GO2Explainer} type="video/mp4" /> -->
     <track
@@ -32,7 +32,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
   </video>
   <ul
     id="video-controls"
-    class="absolute bottom-20 flex w-screen justify-around"
+    class="absolute -bottom-5 flex w-screen lg:w-1/2 justify-around"
   >
     <li class="flex items-center">
       <button id="playpause" type="button">
@@ -45,7 +45,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
       <progress
         id="progress"
         value="0"
-        class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue"
+        class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue sm:w-[400px] md:w-[550px] xl:w-[650px] 2lx:w-[750px]"
       >
         <span id="progress-bar"></span>
       </progress>
@@ -58,7 +58,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
       </button>
     </li>
   </ul>
-  <div class="absolute bottom-10 flex w-screen justify-around">
+  <div class="absolute -bottom-16 flex w-screen justify-around">
     <a id="scroll-down-button" href="#features">
       <Image src={downArrow} alt="down arrow icon" />
     </a>

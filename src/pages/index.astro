@@ -16,51 +16,51 @@ import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 import Video from "@components/Video.astro";
 import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
-
 ---
 
 <PageLayout title="GO2 - Home">
-	<Section id="home">
-	</Section>
-	<Section id="video-section" className="pt-0">
-		<!-- <Video /> -->
-	</Section>
+	<Section id="home" className="bg-go2-blue-light pb-[0]" />
+	<!-- <Section id="video-section" className="pt-0 bg-go2-blue-light h-[100vh]">
+		<Video />
+	</Section> -->
 	<Section id="features" className="scroll-mt-8">
-		<SectionTitle title="Features"/>
-		<FeatureCard className="bg-pollutants justify-end">
-			<FeatureInfo
-				title="See the air you breathe"
-				description="Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data."
-				hasBackground
-			/>
-		</FeatureCard>
-		<FeatureCard className="bg-go2-blue-light">
-			<FeatureInfo
-				title="Track your exposure"
-				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
-			/>
-			<Image
-				src={exposureStatistics}
-				alt="Exposure statistics dial"
-			/>
-		</FeatureCard>
-		<FeatureCard className="bg-route-finding justify-end">
-			<FeatureInfo
-				title="Track your exposure"
-				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
-				hasBackground
-			/>
-		</FeatureCard>
+		<SectionTitle title="Features" />
+		<div class="md:w-3/4 lg:w-2/3 xl:w-1/2">
+			<div class="md:flex md:w-1/2 md:-mb-[42%]">
+				<FeatureCard className="bg-pollutants justify-end mb-6 md:mr-2">
+					<FeatureInfo
+						title="See the air you breathe"
+						description="Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data."
+						hasBackground
+					/>
+				</FeatureCard>
+			</div>
+			<div class="md:flex md:justify-end">
+				<FeatureCard className="bg-go2-blue-light mb-6 md:w-[50%] md:ml-2">
+					<FeatureInfo
+						title="Track your exposure"
+						description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
+					/>
+					<Image src={exposureStatistics} alt="Exposure statistics dial" />
+				</FeatureCard>
+			</div>
+			<div class="md:flex md:w-1/2 md:-mt-[42%]">
+				<FeatureCard className="bg-route-finding justify-end md:mr-2">
+					<FeatureInfo
+						title="Find the freshest route"
+						description="Reduce your exposure by taking the least polluted route when walking, running or cycling."
+						hasBackground
+					/>
+				</FeatureCard>
+			</div>
+		</div>
 	</Section>
-	<Section
-		id="health-and-well-being"
-		className="bg-go2-blue-light"
-	>
-		<SectionTitle title="Health and well-being"/>
+	<Section id="health-and-well-being" className="bg-go2-blue-light">
+		<SectionTitle title="Health and well-being" />
 		<Image
 			src={healthHero}
 			alt="Birds singing"
-			class="w-full max-w-none max-h-home-hero-image"
+			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
 		/>
 		<ScrollInAnimation>
 			<h3 class="text-2xl text-center mb-5">
@@ -69,35 +69,38 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 			<div class="flex flex-col gap-4">
 				<p>Air pollutants lead to poor health and reduced self esteem.</p>
 				<p>Pollution lowers productivity levels and income earnings.</p>
-				<p>Less environmental stress leads to less distress and better life satisfaction.</p>
+				<p>
+					Less environmental stress leads to less distress and better life
+					satisfaction.
+				</p>
 			</div>
 		</ScrollInAnimation>
-		<ActionButton
-			title="Learn more"
-			href="/health-and-happiness"
-		/>
+		<ActionButton title="Learn more" href="/health-and-happiness" />
 	</Section>
-	<Section
-		id="science"
-		className="bg-go2-blue"
-	>
-		<SectionTitle
-			title="Science"
-			className="text-white"
-		/>
+	<Section id="science" className="bg-go2-blue">
+		<SectionTitle title="Science" className="text-white" />
 		<Image
 			src={scienceHero}
 			alt="Cloud and connectivity"
-			class="w-full max-w-none max-h-home-hero-image"
+			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
 		/>
 		<ScrollInAnimation>
 			<h3 class="text-2xl text-white text-center mb-5">
 				Obsessed with scientific accuracy
 			</h3>
 			<div class="flex flex-col gap-4 text-white">
-				<p>Uniquely accurate, evolving AI model combining traffic, emissions and weather data.</p>
-				<p>More compounds added constantly to model indoor and outdoor environments.</p>
-				<p>Finland-based international team with 2000+ top-level peer-reviewed papers.</p>
+				<p>
+					Uniquely accurate, evolving AI model combining traffic, emissions and
+					weather data.
+				</p>
+				<p>
+					More compounds added constantly to model indoor and outdoor
+					environments.
+				</p>
+				<p>
+					Finland-based international team with 2000+ top-level peer-reviewed
+					papers.
+				</p>
 			</div>
 		</ScrollInAnimation>
 		<ActionButton
@@ -108,57 +111,53 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 	</Section>
 	<Section
 		id="Download"
-		className="bg-clouds w-full bg-cover bg-center"
+		className="bg-clouds-bottom w-full bg-cover bg-center sm:bg-clouds-bottom-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-bottom"
 	>
-		<h3 class="text-2xl text-black text-center w-7/12 my-6">Take a fresh start. Download GO2 for free</h3>
+		<h3
+			class="text-2xl text-black text-center w-7/12 my-6 sm:w-1/3 sm:my-12 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
+		>
+			Take a fresh start. Download GO2 for free
+		</h3>
 		<a
 			href=""
 			class="bg-go2-blue text-[#fff] flex flex-row gap-2 rounded-[24px]"
 		>
-			<Image src={appIcon} alt="App icon"/>
+			<Image src={appIcon} alt="App icon" />
 		</a>
 	</Section>
-	<Section
-		id="availability-1"
-		className="bg-go2-blue-light"
-	>
-		<AvailabilityCard/>
+	<Section id="availability-1" className="bg-go2-blue-light">
+		<AvailabilityCard />
 	</Section>
 	<Section
 		id="subscription-1"
-		className="bg-clouds-2 bg-cover bg-top"
+		className="bg-clouds-top w-full bg-cover bg-center sm:bg-clouds-top-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-top sm:mb-10"
 	>
-		<SubscriptionOptionsCard/>
+		<SubscriptionOptionsCard />
 	</Section>
-	<Section
-		id="support"
-		className="bg-white"
-	>
-		<SectionTitle title="Support"/>
+	<Section id="support" className="bg-white ">
+		<SectionTitle title="Support" />
 		<Image
 			src={supportHero}
 			alt="Jigsaw pieces"
-			class="w-full max-w-none max-h-home-hero-image"
+			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
 		/>
-		<h3 class="text-2xl">
-			How can we help you
-		</h3>
+		<h3 class="text-2xl">How can we help you</h3>
 		<ScrollInAnimation>
 			<div class="flex flex-col gap-4">
-				<p>We’ve collected some of the most common questions and their answers below.</p>
-				<p> If you can’t find what you’re looking for, you can always contact us.</p>
+				<p>
+					We’ve collected some of the most common questions and their answers
+					below.
+				</p>
+				<p>
+					If you can’t find what you’re looking for, you can always contact us.
+				</p>
 			</div>
 		</ScrollInAnimation>
 		<ActionButton title="Contact support" />
 	</Section>
-	<Section
-		id="faq"
-		className="bg-white"
-	>
-		<SectionTitle title="Support"/>
-		<h3 class="text-2xl">
-			Frequently asked questions
-		</h3>
+	<Section id="faq" className="bg-white">
+		<SectionTitle title="Support" />
+		<h3 class="text-2xl text-center sm:w-1/5">Frequently asked questions</h3>
 		<AccordionItem
 			summary="What are PM2.5, PM10, CO2 and NOx?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
