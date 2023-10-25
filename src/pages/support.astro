@@ -2,10 +2,10 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
-import supportHero from "@images/support-hero.png";
 import SectionTitle from "@components/SectionTitle.astro";
 import ActionButton from "@components/ActionButton.astro";
 import supportSpeechBubble from "@images/support-speech-bubble.png";
+import supportHeroSubpage from "@images/support-hero-subpage.png";
 import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 
 ---
@@ -21,14 +21,14 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 		className="bg-go2-blue-light"
 	>
 		<Image
-			src={supportHero}
+			src={supportHeroSubpage}
 			alt="Jigsaw pieces"
-			class="w-full max-w-none max-h-hero-image"
+			class="w-full max-w-none max-h-hero-image sm:w-[500px] sm:mb-8"
 		/>
 		<h3 class="text-2xl">
 			Support
 		</h3>
-		<div class="flex flex-col gap-4">
+		<div class="flex flex-col gap-4 sm:w-1/2">
 			<p class="text-center">Ut enim ad minim veniam, quis nostrud. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
 		</div>
 	</Section>
@@ -43,6 +43,7 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
     <Image
       src={supportSpeechBubble}
       alt="Speech bubble"
+      class="sm:w-1/6 xl:w-1/12 sm:mb-8"
     />
     <FadeInAnimation>
     <h3 class="text-2xl text-black text-center mb-5">

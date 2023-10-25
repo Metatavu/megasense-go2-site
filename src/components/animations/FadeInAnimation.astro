@@ -1,5 +1,16 @@
+---
+type Props = {
+  className?: string;
+};
 
-<fade-in-animation class="opacity-0 translate-y-8 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-in-out motion-reduce:opacity-100 motion-reduce:translate-y-0 sm:w-1/2">
+const { className } = Astro.props;
+
+---
+
+<fade-in-animation
+  class="opacity-0 translate-y-8 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-in-out motion-reduce:opacity-100 motion-reduce:translate-y-0"
+  class:list={[className]}
+>
   <slot/>
 </fade-in-animation>
 

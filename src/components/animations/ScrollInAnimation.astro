@@ -1,4 +1,16 @@
-<scroll-in-animation class="opacity-0 motion-reduce:opacity-100">
+---
+type Props = {
+  className?: string;
+};
+
+const { className } = Astro.props;
+
+---
+
+<scroll-in-animation
+  class="opacity-0 motion-reduce:opacity-100"
+  class:list={[className]}
+>
   <slot/>
 </scroll-in-animation>
 
