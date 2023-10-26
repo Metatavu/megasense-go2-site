@@ -5,7 +5,11 @@ import playIcon from "@images/play-icon.svg";
 import muteIcon from "@images/mute-icon.svg";
 import iconVolumeOff from "@images/icon-volume-off.svg";
 import downArrow from "@images/down-arrow-icon-grey.svg";
-import GO2Explainer from "@video/GO2-Explainer.mp4";
+import "../styles/subtitles.css";
+
+const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
+// TODO: Cors issue using this for subtitles
+// const subtitlesUrl = import.meta.env.PUBLIC_SUBTITLES_URL;
 
 ---
 
@@ -21,7 +25,7 @@ import GO2Explainer from "@video/GO2-Explainer.mp4";
     muted
     class="h-[75vh]"
   >
-    <!-- <source src={GO2Explainer} type="video/mp4" /> -->
+    <source src={videoUrl} type="video/webm" />
     <track
       label="English"
       kind="subtitles"
