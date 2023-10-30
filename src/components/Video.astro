@@ -42,7 +42,7 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         <progress
           id="progress"
           value="0"
-          class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue sm:w-[400px] md:w-[550px] xl:w-[650px] 2lx:w-[750px]"
+          class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue sm:w-[400px] md:w-[550px] xl:w-[650px] 2lx:w-[750px] cursor-pointer"
         >
           <span id="progress-bar"></span>
         </progress>
@@ -135,6 +135,12 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
           playpause.appendChild(playIcon);
           video.autoplay = false;
           video.load();
+        });
+
+        progress.addEventListener("click", (e) => {
+          const rect = progress.getBoundingClientRect();
+          const position = (e.pageX - rect.left) / progress.offsetWidth;
+          video.currentTime = position * video.duration;
         });
 
         mute.addEventListener("click", () => {
