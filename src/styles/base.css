@@ -5,5 +5,9 @@
 @layer base {
 	html {
 		@apply motion-safe:scroll-smooth;
+		font-size: 16px;
+		@screen md {
+			font-size: 18px;
+		}
 	}
 }
