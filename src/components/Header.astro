@@ -57,33 +57,35 @@ const secondaryNavigationLinks = {
 
 <main-navigation class="group">
   <header class="bg-go2-blue-light fixed items-center w-full z-50">
-    <div class="px-6 pt-10 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 group-data-[not-on-top]:pt-6 group-data-[not-on-top]:pb-4 sm:justify-center">
-      <div class="flex flex-row justify-start sm:mr-96 xl:mr-[30rem] 2xl:mr-[40rem]">
+    <div class="px-6 pt-4 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 justify-between sm:mx-6 lg:mx-12 xl:mx-28 2xl:mx-48">
+      <div class="flex flex-row justify-start">
         <img
           src={logo.src}
           alt="Go2 Logo"
-          class="h-8 motion-safe:transition-all duration-900 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
+          class="h-10 motion-safe:transition-all duration-900 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
         />
-        <p class=" w-1/2 text-[10px] text-go2-blue font-bold ml-1">Powered by MegaSense</p>
+        <p class="hidden w-1/2 text-[10px] text-go2-blue ml-2 uppercase group-data-[open]:block">Powered by MegaSense</p>
       </div>
-      <ActionLink
-        dense
-        title="Install"
-        className="group-data-[open]:opacity-0 motion-safe:transition-all duration-900 ease-out"
-      />
-      <button
-        menu-button
-        type="button"
-        title="Open menu"
-        class="flex flex-col h-15 w-10 justify-center items-center"
-      >
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
-      </button>
+      <div class="flex gap-6">
+        <ActionLink
+          dense
+          title="Install"
+          className="group-data-[open]:opacity-0 motion-safe:transition-all duration-900 ease-out"
+        />
+        <button
+          menu-button
+          type="button"
+          title="Open menu"
+          class="flex flex-col h-15 justify-center items-center"
+        >
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
+        </button>
+      </div>
     </div>
     <div class="overflow-hidden h-0 group-data-[open]:h-4/5 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
-      <nav id="navigation" class="-translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out sm:mr-28 lg:mr-48 xl:mr-80 2xl:mr-96">
+      <nav id="navigation" class="flex flex-col justify-end -translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out sm:mr-6 lg:mr-12 xl:mr-28 2xl:mr-48">
         <!-- TODO: Requires additional responsiveness styling -->
         { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
           <a href={url} class="px-6 py-3 flex flex-row justify-end text-black font-bold text-md active:bg-go2-blue-dark">

@@ -2,8 +2,13 @@
 import { Image } from 'astro:assets';
 import SectionTitle from './SectionTitle.astro';
 import ActionButton from './ActionButton.astro';
-import globe from "@images/globe.png";
 import ScrollInAnimation from './animations/ScrollInAnimation.astro';
+
+type Props = {
+  image: ImageMetadata;
+};
+
+const { image } = Astro.props;
 
 ---
 
@@ -12,7 +17,7 @@ import ScrollInAnimation from './animations/ScrollInAnimation.astro';
   className="text-go2-blue"
 />
 <Image
-  src={globe}
+  src={image}
   alt="Globe"
   class="w-4/12 max-w-none sm:w-1/12"
 />

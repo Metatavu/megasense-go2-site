@@ -3,6 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
 import pricingHero from "@images/pricing-hero.png";
+import globeIcon from "@images/globe-icon.png";
 import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 
@@ -34,7 +35,7 @@ import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
     id="availability-2"
     className="bg-white"
   >
-    <AvailabilityCard/>
+    <AvailabilityCard image={globeIcon}/>
   </Section>
   <Section
 		id="subscription-2"

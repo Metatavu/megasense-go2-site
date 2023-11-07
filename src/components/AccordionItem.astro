@@ -6,10 +6,11 @@ type Props = {
 };
 
 const { className, summary, content } = Astro.props;
+
 ---
-<!-- TODO: Add transition -->
+
 <details
-  class="bg-go2-blue-light px-16 py-1 rounded-2xl text-sm"
+  class="bg-go2-blue-light pl-2 py-1 rounded-2xl text-sm w-11/12"
   class:list={[className]}
 >
   <summary class="list-none font-bold">{summary}</summary>
