@@ -1,15 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@images/go2-logo.svg";
-import ActionLink from "./ActionButton.astro";
 import homeIcon from "@images/home-icon.svg";
 import infoIcon from "@images/info-icon.svg";
 import healthIcon from "@images/health-icon.svg";
 import featureIcon from "@images/feature-icon.svg";
 import scienceIcon from "@images/science-icon.svg";
 import supportIcon from "@images/support-icon.svg";
-import ActionButton from "./ActionButton.astro";
 import downloadIcon from "@images/download-icon.svg";
+import DownloadButton from "./DownloadButton.astro";
 
 const navigationLinks = {
   "Home": {
@@ -67,7 +66,7 @@ const secondaryNavigationLinks = {
         <p class="hidden w-1/2 text-[10px] text-go2-blue ml-2 uppercase group-data-[open]:block">Powered by MegaSense</p>
       </div>
       <div class="flex gap-6">
-        <ActionLink
+        <DownloadButton
           dense
           title="Install"
           className="group-data-[open]:opacity-0 motion-safe:transition-all duration-900 ease-out"
@@ -97,9 +96,8 @@ const secondaryNavigationLinks = {
           </a>
         )}
         <div class="p-4 flex flex-row justify-end">
-          <ActionButton
+          <DownloadButton
             title="Download GO2"
-            href=""
             icon={downloadIcon}
             className="text-sm py-2 items-center"
           />

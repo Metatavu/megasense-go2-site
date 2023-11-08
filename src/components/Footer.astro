@@ -7,9 +7,9 @@ import healthIconFooter from "@images/health-icon-footer.svg";
 import scienceIconFooter from "@images/science-icon-footer.svg";
 import supportIconFooter from "@images/support-icon-footer.svg";
 import infoIconFooter from "@images/info-icon-footer.svg";
-import ActionButton from "./ActionButton.astro";
 import downloadIcon from "@images/download-icon.svg";
 import Section from "./Section.astro";
+import DownloadButton from "./DownloadButton.astro";
 
 
 const navigationLinks = {
@@ -72,9 +72,8 @@ const secondaryNavigationLinks = {
     </div>
     <nav class="group items-center">
       <!-- TODO: Requires additional responsiveness styling -->
-      <ActionButton
+      <DownloadButton
         title="Download GO2"
-        href=""
         icon={downloadIcon}
         className="justify-center text-sm my-4 items-center py-2"
       />

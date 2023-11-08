@@ -17,6 +17,7 @@ import AvailabilityCard from "@components/AvailabilityCard.astro";
 import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 import Video from "@components/Video.astro";
 import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+import DownloadIconButton from "@components/DownloadIconButton.astro";
 
 ---
 
@@ -124,12 +125,7 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 		>
 			Take a fresh start. Download GO2 for free
 		</h3>
-		<a
-			href=""
-			class="bg-go2-blue text-[#fff] flex flex-row gap-2 rounded-[24px]"
-		>
-			<Image src={appIcon} alt="App icon" />
-		</a>
+		<DownloadIconButton />
 	</Section>
 	<Section id="availability-1" className="bg-go2-blue-light">
 		<AvailabilityCard image={globeShaded} />
@@ -159,6 +155,7 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 				</p>
 			</div>
 		</ScrollInAnimation>
+		<!-- TODO: To be updated with functionality -->
 		<ActionButton title="Contact support" />
 	</Section>
 	<Section id="faq" className="bg-white">
