@@ -88,7 +88,7 @@ const secondaryNavigationLinks = {
       <nav id="navigation" class="flex flex-col justify-end -translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out sm:mr-6 lg:mr-12 xl:mr-28 2xl:mr-48">
         <!-- TODO: Requires additional responsiveness styling -->
         { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
-          <a href={url} class="px-6 py-3 flex flex-row justify-end text-black font-bold text-md active:bg-go2-blue-dark">
+          <a href={url} class="px-6 py-3 flex flex-row justify-end text-black font-bold text-md active:bg-go2-blue hover:bg-go2-blue-hover">
             <span class="mr-2">{title}</span>
             <Image
               src={icon}
