@@ -6,7 +6,7 @@ import appIcon from "@images/go2-app-icon.svg";
 
 <download-icon-button>
   <a
-  class="download-icon-button bg-go2-blue text-[#fff] flex flex-row gap-2 rounded-[24px]"
+  class="download-icon-button bg-go2-blue text-[#fff] flex flex-row gap-2 rounded-[24px] md:hover:cursor-pointer"
   >
     <Image src={appIcon} alt="App icon" />
   </a>
@@ -27,8 +27,8 @@ import appIcon from "@images/go2-app-icon.svg";
        * Redirects to device specific app store
        */
       const redirectAppStore = () => {
-        const isAppleDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        const isAndroid = /Android/i.test(navigator.userAgent);
+        const isAppleDevice = /iPhone|iPad|iPod|Macintosh/i.test(navigator.userAgent);
+        const isAndroid = /Android|Linux/i.test(navigator.userAgent);
 
         if (isAppleDevice) {
           // TODO: Replace with app link when available
@@ -37,6 +37,7 @@ import appIcon from "@images/go2-app-icon.svg";
           // TODO: Replace with app link when available
           window.open("https://play.google.com", "_blank");
         }
+        // TODO: Add fallback for other devices
       }
     }
   }

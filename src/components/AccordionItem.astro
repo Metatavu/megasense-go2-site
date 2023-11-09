@@ -13,6 +13,6 @@ const { className, summary, content } = Astro.props;
   class="bg-go2-blue-light px-3 py-1 rounded-2xl text-sm w-11/12 md:max-w-max md:pr-2"
   class:list={[className]}
 >
-  <summary class="list-none font-bold">{summary}</summary>
+  <summary class="list-none font-bold md:hover:cursor-pointer">{summary}</summary>
   <p class="my-4">{content}</p>
 </details>
