@@ -30,7 +30,7 @@ const { image } = Astro.props;
     <p>Join the waitlist to be the first know.</p>
   </div>
 </ScrollInAnimation>
-<waitlist-form>
+<waitlist-form class="w-4/5 sm:w-[400px]">
   <button class="waitlist-button px-6 py-3 uppercase rounded-full bg-go2-blue text-[#fff] flex flex-row gap-2 mb-4 mx-auto md:hover:cursor-pointer">Join the waiting list</button>
   <!-- TODO: Form post to set up -->
   <form id="waitlist-form" class="hidden" action="" method="post">
@@ -41,7 +41,7 @@ const { image } = Astro.props;
       id="email"
       name="email"
       required
-      class="border-2 border-go2-blue-hover"
+      class="border-2 border-go2-blue-hover w-full"
     >
     <br>
     <label for="first-name">First Name:</label>
@@ -51,7 +51,7 @@ const { image } = Astro.props;
       id="first-name"
       name="first-name"
       required
-      class="border-2 border-go2-blue-hover"
+      class="border-2 border-go2-blue-hover w-full"
     >
     <br>
     <label for="last-name">Last Name:</label>
@@ -61,7 +61,7 @@ const { image } = Astro.props;
       id="last-name"
       name="last-name"
       required
-      class="border-2 border-go2-blue-hover"
+      class="border-2 border-go2-blue-hover w-full"
     >
     <br>
     <label for="city">City:</label>
@@ -71,7 +71,7 @@ const { image } = Astro.props;
       id="city"
       name="city"
       required
-      class="border-2 border-go2-blue-hover"
+      class="border-2 border-go2-blue-hover w-full"
     >
     <br>
     <label for="country">Country:</label>
@@ -80,7 +80,7 @@ const { image } = Astro.props;
       id="country"
       name="country"
       required
-      class="border-2 border-go2-blue-hover bg-white max-w-[200px]"
+      class="border-2 border-go2-blue-hover bg-white w-full"
     >
       <option disabled selected>Select a country</option>
     </select>
