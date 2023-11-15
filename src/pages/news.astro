@@ -1,0 +1,49 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import SectionTitle from "@components/SectionTitle.astro";
+import supportHeroSubpage from "@images/support-hero-subpage.png";
+import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
+import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+
+---
+
+<PageLayout title="GO2 - News">
+  <Section
+    id="news-page"
+    className="bg-go2-blue-light pb-[0px]"
+  >
+	</Section>
+  <Section
+		id="news-start"
+		className="bg-go2-blue-light"
+	>
+		<Image
+			src={supportHeroSubpage}
+			alt="Jigsaw pieces"
+			class="w-full max-w-none max-h-hero-image sm:w-[500px] sm:mb-8"
+		/>
+		<h3 class="text-2xl">
+			News
+		</h3>
+	</Section>
+  <Section id="news-slush">
+    <SectionTitle
+      title="15 Nov 2023"
+      className="text-go2-blue"
+    />
+    <ScrollInAnimation className="sm:w-1/2">
+      <h3 class="text-2xl text-black text-center mb-5">
+        MegaSense at Slush 2023
+      </h3>
+      <div class="flex flex-col gap-4 text-black text-center">
+        <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+      </div>
+    </ScrollInAnimation>
+    <ReadMoreButtonAccordion
+      content="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+      className="bg-transparent text-go2-blue border border-go2-blue"
+    />
+  </Section>
+</PageLayout>

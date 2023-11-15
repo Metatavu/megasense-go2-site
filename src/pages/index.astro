@@ -13,11 +13,11 @@ import globeShaded from "@images/globe-on-shaded.png";
 import ActionButton from "@components/ActionButton.astro";
 import AccordionItem from "@components/AccordionItem.astro";
 import AvailabilityCard from "@components/AvailabilityCard.astro";
-import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
 import Video from "@components/Video.astro";
 import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 import DownloadIconButton from "@components/DownloadIconButton.astro";
 import SupportButton from "@components/SupportButton.astro";
+import JoinTheMovementCard from "@components/JoinTheMovementCard.astro";
 
 ---
 
@@ -33,8 +33,8 @@ import SupportButton from "@components/SupportButton.astro";
 				<div class="flex md:h-[600px] my-4 md:mr-2">
 					<FeatureCard className="bg-pollutants justify-end">
 						<FeatureInfo
-							title="See the air you breathe"
-							description="Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data."
+							title="Four air pollutants every hour"
+							description="Air pollution and climate change are two sides of the same coin."
 							hasBackground
 						/>
 					</FeatureCard>
@@ -47,8 +47,8 @@ import SupportButton from "@components/SupportButton.astro";
 							class="hidden md:block"
 						/>
 						<FeatureInfo
-							title="Track your exposure"
-							description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
+							title="Exposure Record"
+							description="Protecting health to strengthen human capital and reduce poverty."
 						/>
 						<Image
 							src={exposureStatistics}
@@ -62,8 +62,8 @@ import SupportButton from "@components/SupportButton.astro";
 				<div class="md:flex md:flex-col md:h-[600px] md:ml-2">
 					<FeatureCard className="bg-route-finding justify-end">
 						<FeatureInfo
-							title="Find the freshest route"
-							description="Reduce your exposure by taking the least polluted route when walking, running or cycling."
+							title="Healthy Navigation"
+							description="Avoiding fossil fuel emissions  and reducing CO2 levels."
 							hasBackground
 						/>
 					</FeatureCard>
@@ -72,29 +72,31 @@ import SupportButton from "@components/SupportButton.astro";
 	</div>
 	</Section>
 	<Section id="health-and-well-being" className="bg-go2-blue-light">
-		<SectionTitle title="Health and well-being" />
+		<SectionTitle title="Benefits" />
 		<Image
 			src={healthHero}
 			alt="Birds singing"
 			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
 		/>
 		<ScrollInAnimation>
-			<h3 class="text-2xl text-center mb-5">
-				Improve health, increase happiness
+			<h3 class="text-2xl text-center">
+				Improve health
 			</h3>
-			<div class="flex flex-col gap-4">
-				<p>Air pollutants lead to poor health and reduced self esteem.</p>
-				<p>Pollution lowers productivity levels and income earnings.</p>
+			<h3 class="text-2xl text-center mb-5">
+				Increase happiness
+			</h3>
+			<div class="flex flex-col gap-4 text-center">
+				<p>Enhanced Quality of Life</p>
+				<p>Increased Life Expectancy</p>
 				<p>
-					Less environmental stress leads to less distress and better life
-					satisfaction.
+					Contribute to Decarbonisation
 				</p>
 			</div>
 		</ScrollInAnimation>
 		<ActionButton title="Learn more" href="/health-and-happiness" />
 	</Section>
 	<Section id="science" className="bg-go2-blue">
-		<SectionTitle title="Science" className="text-white" />
+		<SectionTitle title="Research" className="text-white" />
 		<Image
 			src={scienceHero}
 			alt="Cloud and connectivity"
@@ -104,18 +106,15 @@ import SupportButton from "@components/SupportButton.astro";
 			<h3 class="text-2xl text-white text-center mb-5">
 				Obsessed with scientific accuracy
 			</h3>
-			<div class="flex flex-col gap-4 text-white">
+			<div class="flex flex-col gap-4 text-white text-center">
 				<p>
-					Uniquely accurate, evolving AI model combining traffic, emissions and
-					weather data.
+					Cloud Platform
 				</p>
 				<p>
-					More compounds added constantly to model indoor and outdoor
-					environments.
+					Sensing Infrastructure
 				</p>
 				<p>
-					Finland-based international team with 2000+ top-level peer-reviewed
-					papers.
+					People Flow.
 				</p>
 			</div>
 		</ScrollInAnimation>
@@ -143,7 +142,7 @@ import SupportButton from "@components/SupportButton.astro";
 		id="subscription-1"
 		className="bg-clouds-top w-full bg-cover bg-center sm:bg-clouds-top-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-top sm:mb-32"
 	>
-		<SubscriptionOptionsCard />
+		<JoinTheMovementCard />
 	</Section>
 	<Section id="support" className="bg-white ">
 		<SectionTitle title="Support" />
@@ -170,27 +169,27 @@ import SupportButton from "@components/SupportButton.astro";
 		<SectionTitle title="Support" />
 		<h3 class="text-2xl text-center sm:w-1/5">Frequently asked questions</h3>
 		<AccordionItem
-			summary="What are PM2.5, PM10, CO2 and NOx?"
+			summary="What does the Air Pollution Map show?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem
-			summary="How is the air quality measured?"
+			summary="What is the exposure records?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem
-			summary="How are the forecasts created?"
+			summary="How does Healthy Navigation work?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem
-			summary="How can I cancel my subscription?"
+			summary="The MegaSense movement : how am I helping?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem
-			summary="What’s included in the free version?"
+			summary="What can GO2 data do for my business?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem
-			summary="Why should I upgrade to the Pro version?"
+			summary="When will GO2 be available in my city?"
 			content="Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat."
 		/>
 		<AccordionItem

@@ -1,0 +1,29 @@
+---
+
+import SectionTitle from './SectionTitle.astro';
+import downloadIcon from "@images/download-icon.svg";
+import FadeInAnimation from './animations/FadeInAnimation.astro';
+import DownloadButton from './DownloadButton.astro';
+
+---
+
+<SectionTitle
+  title="Membership"
+  className="text-go2-blue my-8"
+/>
+<h3 class="text-2xl text-black text-center">
+  Join the Movement
+</h3>
+<div class="flex flex-col gap-4 text-black text-center sm:w-2/3 xl:w-1/3">
+  <p>Three months free then £2.99 per month for everything</p>
+</div>
+<DownloadButton
+  title="Download"
+  className="bg-go2-blue text-white"
+  icon={downloadIcon}
+/>
+<FadeInAnimation className="sm:w-2/3">
+  <div class="flex justify-center gap-4 text-gray-500 text-xs">
+    <p class="sm:w-2/3 xl:w-1/2">* Legal boilerplate about the price and how it’s charged. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
+  </div>
+</FadeInAnimation>

@@ -5,8 +5,8 @@ import SectionTitle from "@components/SectionTitle.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
 import featuresHero from "@images/features-hero.png";
-import pollutants from "public/pollutants.png"
-import routeFinding from "@images/route-finding.png"
+import pollutants from "@images/square-pollutants.png"
+import squareRouteFinding from "@images/square-route-finding.png"
 import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
 import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 
@@ -28,12 +28,14 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 			Features
 		</h3>
 		<div class="flex flex-col gap-4 sm:w-1/2">
-			<p class="text-center">Ut enim ad minim veniam, quis nostrud. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid.</p>
+			<p class="text-center">Air Pollution Map</p>
+			<p class="text-center">Exposure Record</p>
+			<p class="text-center">Healthy Navigation</p>
 		</div>
 	</Section>
 	<Section id="air-quality-map">
-		<SectionTitle title="Air quality map"/>
-    <div class="h-[50vh] overflow-hidden">
+		<SectionTitle title="Air pollution map"/>
+    <div class="max-h-[50vh] overflow-hidden">
       <Image
         src={pollutants}
         alt="Pollutants represented on a map"
@@ -42,10 +44,10 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
     </div>
     <FadeInAnimation className="sm:w-1/2">
       <h3 class="text-2xl text-center mb-5">
-        See the air you breathe
+        Today’s four pollutants
       </h3>
       <div class="flex flex-col gap-4">
-        <p class="text-center">Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data.</p>
+        <p class="text-center">High resolution air pollution maps combining live traffic data and other  emissions with today’s weather forecasts.</p>
       </div>
     </FadeInAnimation>
     <ReadMoreButtonAccordion
@@ -57,17 +59,23 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
     id="exposure-tracking"
     className="bg-go2-blue-light"
   >
-    <SectionTitle title="Exposure tracking"/>
+    <SectionTitle title="exposure record"/>
     <Image
       src={exposureStatistics}
       alt="Exposure statistics dial"
     />
     <FadeInAnimation>
       <h3 class="text-2xl text-center mb-5">
-        Your air quality time
+        Today in micrograms
       </h3>
       <div class="flex flex-col gap-4">
-        <p class="text-center">Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness.</p>
+        <p class="text-center"> Exposure information based on location in the air pollution map.
+        </p>
+        <p class="text-center">
+          Your daily routine recorded in micrograms of four air pollutants
+          </p>
+        <p class="text-center">
+          Allowing you to take control of your exposure and change your daily & weekly routine and see the benefits.</p>
       </div>
     </FadeInAnimation>
     <ReadMoreButtonAccordion
@@ -80,21 +88,21 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
 		className="bg-white"
 	>
 		<SectionTitle
-			title="Clean routing"
+			title="healthy navigation"
 			className="text-go2-blue"
 		/>
-    <div class="h-[50vh] overflow-hidden">
+    <div class="max-h-[50vh] overflow-hidden">
       <Image
-        src={routeFinding}
+        src={squareRouteFinding}
         alt="Map with a route shown"
       />
     </div>
     <FadeInAnimation>
       <h3 class="text-2xl text-black text-center mb-5">
-        Always take the freshest route
+        Today’s cleanest route
       </h3>
       <div class="flex flex-col gap-4 text-black text-center">
-        <p>Reduce your exposure by taking the least polluted route when walking, running or cycling.</p>
+        <p>Take the least polluted route for  walking, running or cycling, and  counteract the negative effects of air pollution exposure</p>
       </div>
     </FadeInAnimation>
 		<ReadMoreButtonAccordion
