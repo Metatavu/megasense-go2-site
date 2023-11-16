@@ -8,8 +8,6 @@ import downArrow from "@images/down-arrow-icon-grey.svg";
 import "../styles/subtitles.css";
 
 const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
-// TODO: Cors issue using this for subtitles
-// const subtitlesUrl = import.meta.env.PUBLIC_SUBTITLES_URL;
 
 ---
 
@@ -88,15 +86,18 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         playIcon.classList.toggle("hidden");
         muteIcon.classList.toggle("hidden");
 
+        const subs = import.meta.env.PUBLIC_SUBTITLES_URL;
+
         // Needed to ensure subtitles appear due to use of Astros ViewTransitions
         const subtitles = document.createElement("track");
-        subtitles.kind = 'subtitles';
-        subtitles.srclang = 'en';
-        subtitles.label = 'English';
+        subtitles.kind = "subtitles";
+        subtitles.srclang = "en";
+        subtitles.label = "English";
         subtitles.srclang = "en"
-        subtitles.src = '/src/video/GO2-Explainer-subtitles.vtt';
+        subtitles.src = subs;
         subtitles.default = true;
         video.appendChild(subtitles);
+        video.crossOrigin = "anonymous";
 
         playpause.addEventListener("click", () => {
           if (video.paused || video.ended) {
@@ -156,10 +157,10 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         });
 
         scrollDownButton.addEventListener("click", () => {
-          const targetElement = document.getElementById('features');
+          const targetElement = document.getElementById("features");
           if (targetElement) {
             targetElement.scrollIntoView({
-              behavior: 'smooth',
+              behavior: "smooth",
               block:"start",
             });
           }
@@ -167,7 +168,7 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
       }
     }
   }
-  customElements.define('video-player', VideoPlayer);
+  customElements.define("video-player", VideoPlayer);
 
 
 </script>
