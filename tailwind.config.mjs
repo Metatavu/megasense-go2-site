@@ -6,8 +6,8 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				pollutants: "url('/pollutants.png')",
-				"route-finding": "url('/route-finding.png')",
+				pollutants: "url('/pollutants.jpg')",
+				"route-finding": "url('/route-finding.jpg')",
 				"clouds-bottom": "url('/clouds-bottom.png')",
 				"clouds-bottom-lg": "url('/clouds-bottom-lg.png')",
 				"app-image": "url('/go2-app-icon.png')",
