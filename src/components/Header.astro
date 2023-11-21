@@ -55,16 +55,16 @@ const secondaryNavigationLinks = {
 ---
 
 <main-navigation class="group">
-  <header class="bg-go2-blue-light fixed items-center w-full z-50">
-    <div class="px-6 pt-2 pb-2 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 justify-between sm:mx-6 lg:mx-12 xl:mx-28 2xl:mx-48">
-      <div class="flex flex-row justify-start">
+  <header class="bg-go2-blue-light/95 fixed items-center w-full z-50">
+    <div class="px-6 pt-4 pb-2 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 justify-between sm:mx-6 lg:mx-12 xl:mx-28 2xl:mx-48">
+      <a href="/" class="flex flex-row justify-start">
         <img
           src={logo.src}
           alt="Go2 Logo"
           class="h-10 motion-safe:transition-all duration-900 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
         />
         <p class="hidden w-1/2 text-[10px] text-go2-blue ml-2 uppercase group-data-[open]:block">Powered by MegaSense</p>
-      </div>
+      </a>
       <div class="flex gap-6">
         <DownloadButton
           dense

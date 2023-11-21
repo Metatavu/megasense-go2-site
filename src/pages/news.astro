@@ -4,8 +4,8 @@ import Section from "@components/Section.astro";
 import { Image } from "astro:assets";
 import SectionTitle from "@components/SectionTitle.astro";
 import supportHeroSubpage from "@images/support-hero-subpage.png";
-import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
 import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+import ActionButton from "@components/ActionButton.astro";
 
 ---
 
@@ -35,15 +35,16 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
     />
     <ScrollInAnimation className="sm:w-1/2">
       <h3 class="text-2xl text-black text-center mb-5">
-        MegaSense at Slush 2023
+        MegaSense GO2 becomes available at Slush 2023
       </h3>
-      <div class="flex flex-col gap-4 text-black text-center">
-        <p>Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+      <div class="flex flex-col gap-4 text-black text-center items-center">
+        <p>Slush is a world-renowned startup event, hosting some of the biggest world conquering companies.</p>
+        <p>Join the MegaSense team  on November 30th and December 1st 2023. </p>
+        <p>We will be making available the first version of the GO2 app.</p>
       </div>
     </ScrollInAnimation>
-    <ReadMoreButtonAccordion
-      content="Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
-      className="bg-transparent text-go2-blue border border-go2-blue"
+    <ActionButton
+      title="read more"
     />
   </Section>
 </PageLayout>
