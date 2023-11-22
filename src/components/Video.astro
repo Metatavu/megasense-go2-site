@@ -13,8 +13,9 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
 
 <video-player>
   <!-- TODO: Video styling to finalize -->
-  <figure class="w-screen relative flex items-center justify-center bg-">
+  <figure class="w-screen relative flex items-center justify-center">
     <!-- Muted attribute required for autoplay to work in chrome -->
+    <!-- Plays in line test for safari -->
     <video
       id="video"
       controls
@@ -22,13 +23,14 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
       poster="/src/images/video-poster.png"
       autoplay
       muted
-      class="h-screen w-full object-cover object-center"
+      class="h-screen w-full object-cover object-center sm:w-[55vh]"
+      playsinline
     >
       <source src={videoUrl} type="video/webm" />
     </video>
     <ul
       id="video-controls"
-      class="absolute -bottom-5 flex w-screen px-6 gap-4 sm:w-2/3 lg:w-1/2 2xl:w-1/3 justify-between"
+      class="absolute bottom-10 flex w-screen px-6 gap-4 sm:w-2/3 lg:w-1/2 2xl:w-1/3 justify-between"
     >
       <li class="flex items-center">
         <button id="playpause" type="button">
@@ -52,7 +54,7 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         </button>
       </li>
     </ul>
-    <div class="absolute -bottom-16 flex w-screen justify-around">
+    <div class="absolute bottom-2 flex w-screen justify-around">
       <a id="scroll-down-button" href="#features">
         <Image src={downArrow} alt="down arrow icon" />
       </a>
@@ -96,8 +98,23 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         subtitles.srclang = "en"
         subtitles.src = subs;
         subtitles.default = true;
+
         video.appendChild(subtitles);
         video.crossOrigin = "anonymous";
+
+        const track = video.textTracks[0];
+
+        // TODO: This does not work for the first cue of subtitles
+        const onCueChange = (event: Event) => {
+          const cues = (event.currentTarget as TextTrack).cues;
+          if (!cues) return;
+
+          for (let i = 0; i < cues.length; i++) {
+            (cues[i] as VTTCue).line = -5
+          }
+        }
+
+        track.addEventListener("cuechange", onCueChange);
 
         playpause.addEventListener("click", () => {
           if (video.paused || video.ended) {

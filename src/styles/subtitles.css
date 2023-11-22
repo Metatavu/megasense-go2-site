@@ -1,5 +1,7 @@
 ::cue {
-  font-size: 1.5em;
-  background-color: #d9f1fb;
+  font-size: 1em;
+  background-color: rgba(0,0,0,0);
   color: black;
+  font-weight: 500;
+  font-family: "Lexend";
 }

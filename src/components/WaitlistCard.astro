@@ -1,8 +1,8 @@
 ---
 // TODO: This component is currently unused but may be required in the future
-import { Image } from 'astro:assets';
-import SectionTitle from './SectionTitle.astro';
-import ScrollInAnimation from './animations/ScrollInAnimation.astro';
+import { Image } from "astro:assets";
+import SectionTitle from "./SectionTitle.astro";
+import ScrollInAnimation from "./animations/ScrollInAnimation.astro";
 
 type Props = {
   image: ImageMetadata;
@@ -117,14 +117,14 @@ const { image } = Astro.props;
        * Fetches countries data and populates the select if empty
        */
       const populateCountriesSelect = () => {
-        const countrySelect = document.getElementById('country')! as HTMLSelectElement;
+        const countrySelect = document.getElementById("country")! as HTMLSelectElement;
 
         if (countrySelect.options.length > 1) {
           return;
         }
 
         // TODO: Is there a better way to do this?
-        fetch('https://restcountries.com/v3.1/all')
+        fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
           .then(data => {
             data.sort((
@@ -134,16 +134,16 @@ const { image } = Astro.props;
             });
 
             data.forEach(({name: { common }}: { name: { common: string } }) => {
-              const option = document.createElement('option');
+              const option = document.createElement("option");
               option.value = common;
               option.text = common;
               countrySelect.appendChild(option);
             });
           })
           .catch(error => {
-            console.error('Error fetching country data:', error);
-            const option = document.createElement('option');
-              option.text = 'Error fetching country data, please contact support.';
+            console.error("Error fetching country data:", error);
+            const option = document.createElement("option");
+              option.text = "Error fetching country data, please contact support.";
               countrySelect.appendChild(option);
           });
         };
