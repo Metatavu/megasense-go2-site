@@ -9,16 +9,19 @@ type Props = {
 };
 
 const { className, content } = Astro.props;
+const paragraphs = content.split("\n");
 
 ---
 
 <read-more-toggle class="flex flex-col items-center">
-  <p
-    id="hidden-content"
-    class="my-4 hidden text-center sm:px-10"
-  >
-    {content}
-  </p>
+  {paragraphs.map((paragraph, index) => (
+    <p
+      id={`hidden-content-${index}`}
+      class="my-4 hidden text-center sm:px-10"
+    >
+      {paragraph}
+    </p>
+  ))}
   <button
     class="toggle-button rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
     class:list={[
@@ -44,8 +47,11 @@ const { className, content } = Astro.props;
       upArrowIcon.classList.toggle("hidden");
 
       button.addEventListener("click", () => {
-        const contentElement = button.previousSibling as HTMLElement;
-        contentElement.classList.toggle("hidden");
+        const paragraphs = this.querySelectorAll('[id^="hidden-content-"]');
+
+        paragraphs.forEach((paragraph, index) => {
+          paragraph.classList.toggle("hidden");
+        });
 
         button.innerText === "READ MORE"
           ? button.innerText = "READ LESS"
