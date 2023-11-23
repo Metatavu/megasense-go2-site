@@ -26,6 +26,9 @@ export default {
 					dark: "#1f2d33"
 				}
 			},
+			height: {
+				"video": ["93vh", "100svh"]
+			},
 			maxHeight: {
 				"home-hero-image": "30vh",
 				"hero-image": "40vh",
