@@ -12,7 +12,7 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
 ---
 
 <video-player>
-  <!-- TODO: Video styling to finalize -->
+  <!-- TODO: Video styling to finalize when get final video -->
   <figure class="w-screen relative flex items-center justify-center">
     <!-- Muted attribute required for autoplay to work in chrome -->
     <video
@@ -22,10 +22,11 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
       poster="/src/images/video-poster.png"
       autoplay
       muted
-      class="h-screen w-full object-cover object-center sm:w-[55vh]"
+      class="h-screen max-h-video w-full object-cover object-center sm:w-[55vh]"
       playsinline
     >
       <source src={videoUrl} type="video/webm" />
+      <!-- TODO: Want an mp4 file as fall back for iOS -->
     </video>
     <ul
       id="video-controls"
