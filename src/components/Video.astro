@@ -7,26 +7,27 @@ import iconVolumeOff from "@images/icon-volume-off.svg";
 import downArrow from "@images/down-arrow-icon-grey.svg";
 import "../styles/subtitles.css";
 
-const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
+const videoUrlWebM = import.meta.env.PUBLIC_VIDEO_URL_WEBM;
+const videoUrlMp4 = import.meta.env.PUBLIC_VIDEO_URL_MP4;
+const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
 
 ---
 
 <video-player>
-  <!-- TODO: Video styling to finalize when get final video -->
   <figure class="w-screen relative flex items-center justify-center">
     <!-- Muted attribute required for autoplay to work in chrome -->
     <video
       id="video"
       controls
-      preload="none"
-      poster="/video-poster.png"
+      preload="metadata"
+      poster={videoPlaceholder}
       autoplay
       muted
       class="h-video max-h-video w-full object-cover object-center sm:w-[55vh]"
       playsinline
     >
-      <source src={videoUrl} type="video/webm" />
-      <!-- TODO: Want an mp4 file as fall back for iOS -->
+      <source src={videoUrlWebM} type="video/webm" />
+      <source src={videoUrlMp4} type="video/mp4" />
     </video>
     <ul
       id="video-controls"
@@ -88,34 +89,34 @@ const videoUrl = import.meta.env.PUBLIC_VIDEO_URL;
         playIcon.classList.toggle("hidden");
         muteIcon.classList.toggle("hidden");
 
-        // TODO: Subtitles not in use for current video
-        // const subs = import.meta.env.PUBLIC_SUBTITLES_URL;
+        const subs = import.meta.env.PUBLIC_SUBTITLES_URL;
 
-        // // Needed to ensure subtitles appear due to use of Astros ViewTransitions
-        // const subtitles = document.createElement("track");
-        // subtitles.kind = "subtitles";
-        // subtitles.srclang = "en";
-        // subtitles.label = "English";
-        // subtitles.srclang = "en"
-        // subtitles.src = subs;
-        // subtitles.default = true;
+        // Needed to ensure subtitles appear due to use of Astros ViewTransitions
+        const subtitles = document.createElement("track");
+        subtitles.kind = "subtitles";
+        subtitles.srclang = "en";
+        subtitles.label = "English";
+        subtitles.srclang = "en"
+        subtitles.src = subs;
+        subtitles.default = true;
 
-        // video.appendChild(subtitles);
+        video.appendChild(subtitles);
+        // TODO: This enables subtitles but breaks video on replay.
         // video.crossOrigin = "anonymous";
 
-        // const track = video.textTracks[0];
+        const track = video.textTracks[0];
 
-        // // TODO: This does not work for the first cue of subtitles, need insert additional initial blank cue in subtitles file
-        // const onCueChange = (event: Event) => {
-        //   const cues = (event.currentTarget as TextTrack).cues;
-        //   if (!cues) return;
+        // This does not work for the first cue of subtitles, fix by inserting additional initial blank cue in .vtt
+        const onCueChange = (event: Event) => {
+          const cues = (event.currentTarget as TextTrack).cues;
+          if (!cues) return;
 
-        //   for (let i = 0; i < cues.length; i++) {
-        //     (cues[i] as VTTCue).line = -5
-        //   }
-        // }
+          for (let i = 0; i < cues.length; i++) {
+            (cues[i] as VTTCue).line = -5
+          }
+        }
 
-        // track.addEventListener("cuechange", onCueChange);
+        track.addEventListener("cuechange", onCueChange);
 
         playpause.addEventListener("click", () => {
           if (video.paused || video.ended) {
