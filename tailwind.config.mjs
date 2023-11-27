@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				pollutants: "url('/pollutants.jpg')",
+				"pollutants": "url('/pollutants.jpg')",
 				"route-finding": "url('/route-finding.jpg')",
 				"clouds-bottom": "url('/clouds-bottom.png')",
 				"clouds-bottom-lg": "url('/clouds-bottom-lg.png')",
