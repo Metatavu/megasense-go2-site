@@ -89,7 +89,7 @@ const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
         playIcon.classList.toggle("hidden");
         muteIcon.classList.toggle("hidden");
 
-        const subs = import.meta.env.PUBLIC_SUBTITLES_URL;
+        const subs = "/subtitles.vtt"
 
         // Needed to ensure subtitles appear due to use of Astros ViewTransitions
         const subtitles = document.createElement("track");
@@ -101,8 +101,6 @@ const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
         subtitles.default = true;
 
         video.appendChild(subtitles);
-        // TODO: This enables subtitles but breaks video on replay.
-        // video.crossOrigin = "anonymous";
 
         const track = video.textTracks[0];
 

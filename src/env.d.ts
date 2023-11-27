@@ -5,7 +5,6 @@ interface ImportMetaEnv {
   readonly PUBLIC_VIDEO_URL_WEBM: string;
   readonly PUBLIC_VIDEO_URL_MP4: string;
   readonly PUBLIC_VIDEO_PLACEHOLDER: string;
-  readonly PUBLIC_SUBTITLES_URL: string;
   readonly PUBLIC_SUPPORT_EMAIL: string
 }
 
