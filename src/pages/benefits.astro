@@ -1,0 +1,57 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import healthHero from "@images/health-hero.png";
+import happiness from "@images/happiness.png";
+import heart from "@images/heart.png";
+import climateChange from "@images/climate-change.png";
+import GenericReadMoreCard from "@components/GenericReadMoreCard.astro";
+---
+
+<PageLayout title="GO2 - Benefits">
+  <Section id="benefits-page" className="pb-[0px] bg-go2-blue-light" />
+  <Section id="benefit-start" className="bg-go2-blue-light">
+    <Image
+      src={healthHero}
+      alt="Birds singing"
+      class="w-full max-w-none sm:w-[500px] sm:mb-8"
+    />
+    <h3 class="text-2xl">Benefits</h3>
+    <div class="flex flex-col gap-4 items-center sm:w-1/2">
+      <p class="text-center">Better Quality of Life</p>
+      <p class="text-center">Increased Life Expectancy</p>
+      <p class="text-center">Decarbonisation</p>
+    </div>
+  </Section>
+  <Section id="pollution" className="bg-white">
+    <GenericReadMoreCard
+      image={happiness}
+      altText="Bird singing"
+      sectionTitle="happiness"
+      heading="Better Quality of Life"
+      content="Cleaner air contributes to a better quality of life by creating a more pleasant and healthy environment for individuals and communities. This includes improved outdoor air quality for recreational activities and a reduction in the negative impacts of air pollution on daily life."
+      readMoreContent="Achieving environmental justice is closely linked to enhancing the overall quality of life for all individuals, regardless of their socioeconomic status, race, or geographical location. Here are some ways in which environmental justice contributes to an enhanced quality of life: \n 1. Aims to eliminate disparities in exposure to environmental hazards and pollutants. \n 2. Advocates for equal access to clean air and water. \n 3. Work towards creating safe and healthy living environments for all residents. \n 4. Advocates for equitable access to green spaces and natural resources. \n 5. Raising awareness about environmental issues and their impacts. \n 6. Building climate resilience in vulnerable communities. "
+    />
+  </Section>
+  <Section id="health" className="bg-go2-blue-light">
+    <GenericReadMoreCard
+      image={heart}
+      altText="Heart"
+      sectionTitle="Health"
+      heading="Increased Life Expectancy"
+      content="Reducing air pollution can lead to an increase in life expectancy. Lower levels of pollution mean a decreased risk of premature death and improved quality of life."
+      readMoreContent="Here are several ways in which clean air contributes to longer and healthier lives: \n 1. Clean air reduces the risk of respiratory illnesses, allowing individuals to maintain optimal lung function and breathe more easily. \n 2. Clean air helps protect the cardiovascular system, reducing the likelihood of heart-related issues. \n 3. Clean air decreases exposure to these carcinogens, lowering the risk of developing lung cancer. \n 4. By minimizing exposure to pollutants, individuals are less susceptible to respiratory infections, contributing to overall health and longevity. \n 5. Clean air supports a robust immune system, enhancing the body's ability to fight off illnesses. \n 6. Clean air contributes to healthy aging by reducing the impact of environmental stressors on the body. \n 7. Clean air may help protect cognitive function, contributing to a higher quality of life in older age."
+    />
+  </Section>
+  <Section id="climate-change" className="bg-white">
+    <GenericReadMoreCard
+      image={climateChange}
+      altText="Global weather"
+      sectionTitle="Climate change"
+      heading="Decarbonisation"
+      content="Your efforts to reduce air pollution will coincide with strategies to mitigate climate change, promoting a more sustainable and resilient decarbonised environment."
+      readMoreContent="Here are several ways in which reducing air pollution contributes to decarbonization efforts: \n 1. Many sources of air pollution are also significant contributors to greenhouse gas emissions. \n 2. Efforts to reduce air pollution often involve improving energy efficiency in various sectors, including transportation, industry, and buildings. \n 3. The electrification of transportation, such as electric vehicles is a key strategy to reduce both air pollution and carbon emissions. \n 4. Efforts to reduce air pollution often go hand in hand with promoting sustainable practices in various sectors. \n 5. Implementing regulations and policy measures to reduce air pollution often involves setting emission standards and promoting cleaner technologies. \n 6. Public awareness campaigns and initiatives aimed at reducing air pollution often lead to behavioral changes that support broader sustainability goals."
+    />
+  </Section>
+</PageLayout>

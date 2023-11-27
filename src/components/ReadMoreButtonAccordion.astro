@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import upArrowIcon from "@images/up-arrow-icon.svg"
+import downArrowIcon from "@images/down-arrow-icon.svg";
+
+type Props = {
+  content: string;
+  className?: string;
+};
+
+const { className, content } = Astro.props;
+const paragraphs = content.split("\n");
+
+---
+
+<read-more-toggle class="flex flex-col items-center">
+  {paragraphs.map((paragraph, index) => (
+    <p
+      id={`hidden-content-${index}`}
+      class="my-4 hidden text-center sm:px-10"
+    >
+      {paragraph}
+    </p>
+  ))}
+  <button
+    class="toggle-button rounded-full bg-go2-blue px-6 py-3 uppercase flex items-center gap-2"
+    class:list={[
+      className,
+    ]}
+  >
+    Read more
+    <Image class="down-arrow-icon" src={downArrowIcon} alt=""/>
+    <Image class="up-arrow-icon hidden" src={upArrowIcon} alt=""/>
+  </button>
+</read-more-toggle>
+
+<script>
+  class ReadMoreToggle extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector(".toggle-button") as HTMLElement;
+      const downArrowIcon = this.querySelector(".down-arrow-icon") as HTMLElement;
+      const upArrowIconOriginal = this.querySelector(".up-arrow-icon.hidden") as HTMLElement;
+
+      const upArrowIcon = upArrowIconOriginal.cloneNode(true) as HTMLElement;
+      upArrowIcon.classList.toggle("hidden");
+
+      button.addEventListener("click", () => {
+        const paragraphs = this.querySelectorAll('[id^="hidden-content-"]');
+
+        paragraphs.forEach((paragraph, index) => {
+          paragraph.classList.toggle("hidden");
+        });
+
+        button.innerText === "READ MORE"
+          ? button.innerText = "READ LESS"
+          : button.innerText = "READ MORE";
+
+        button.innerText === "READ MORE"
+          ? button.appendChild(downArrowIcon)
+          : button.appendChild(upArrowIcon);
+      })
+    }
+  }
+  customElements.define("read-more-toggle", ReadMoreToggle);
+</script>

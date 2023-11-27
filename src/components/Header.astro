@@ -1,13 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import logo from "@images/go2-logo.svg";
-import ActionLink from "./ActionButton.astro";
 import homeIcon from "@images/home-icon.svg";
-import infoIcon from "@images/info-icon.svg";
-import healthIcon from "@images/health-icon.svg";
-import cityIcon from "@images/city-icon.svg";
-import ActionButton from "./ActionButton.astro";
+import membershipIcon from "@images/membership-icon.svg";
+import heartIcon from "@images/health-icon.svg";
+import featureIcon from "@images/feature-icon.svg";
+import testTubeIcon from "@images/science-icon.svg";
+import newsIcon from "@images/news-icon.svg";
 import downloadIcon from "@images/download-icon.svg";
+import DownloadButton from "./DownloadButton.astro";
 
 const navigationLinks = {
   "Home": {
@@ -16,64 +17,98 @@ const navigationLinks = {
     alt: "Home"
   },
   "Features": {
-    url: "#features",
-    icon: infoIcon,
-    alt: "Features"
+    url: "/features",
+    icon: featureIcon,
+    alt: "Star"
   },
-  "Health and Well-being": {
-    url: "#health-and-well-being",
-    icon: healthIcon,
-    alt: "Health and Well-being"
+  "Benefits": {
+    url: "/benefits",
+    icon: heartIcon,
+    alt: "Heart"
   },
-  "Science": {
-    url: "#science",
-    icon: cityIcon,
-    alt: "Science"
+  "Research": {
+    url: "/research",
+    icon: testTubeIcon,
+    alt: "Test tube"
+  },
+  "Membership": {
+    url: "/membership",
+    icon: membershipIcon,
+    alt: "Information"
+  },
+  "News": {
+    url: "/news",
+    icon: newsIcon,
+    alt: "Question mark"
   }
 };
 
+const secondaryNavigationLinks = {
+  "Privacy policy": {
+    url: "/privacy-policy"
+  },
+  "About MegaSense": {
+    url: "/about-megasense"
+  }
+}
+
 ---
+
 <main-navigation class="group">
-  <header class="bg-go2-blue-light fixed w-full z-50">
-    <div class="px-6 pt-20 pb-4 flex flex-row gap-4 items-center motion-safe:transition-all duration-300 group-data-[not-on-top]:pt-16 group-data-[not-on-top]:pb-2">
-      <img
-        src={logo.src}
-        alt="Go2 Logo"
-        class="mr-auto h-10 motion-safe:transition-all duration-300 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
-      />
-      <ActionLink
-        dense
-        title="Install now"
-        className="group-data-[open]:opacity-0 motion-safe:transition-all duration-300 ease-out"
-      />
-      <button
-        menu-button
-        type="button"
-        title="Open menu"
-        class="flex flex-col h-10 w-10 justify-center items-center"
-      >
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
-        <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-300 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
-      </button>
+  <header class="bg-go2-blue-light/95 fixed items-center w-full z-50">
+    <div class="px-6 pt-4 pb-2 flex flex-row gap-4 items-center motion-safe:transition-all duration-900 justify-between sm:mx-6 lg:mx-12 xl:mx-28 2xl:mx-48">
+      <a href="/" class="flex flex-row justify-start">
+        <img
+          src={logo.src}
+          alt="Go2 Logo"
+          class="h-10 motion-safe:transition-all duration-900 ease-out group-data-[not-on-top]:h-8 group-data-[open]:h-10"
+        />
+        <p class="hidden w-1/2 text-[10px] text-go2-blue ml-2 uppercase group-data-[open]:block">Powered by MegaSense</p>
+      </a>
+      <div class="flex gap-6">
+        <DownloadButton
+          dense
+          title="Install"
+          className="group-data-[open]:opacity-0 motion-safe:transition-all duration-900 ease-out"
+        />
+        <button
+          menu-button
+          type="button"
+          title="Open menu"
+          class="flex flex-col h-15 justify-center items-center"
+        >
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:rotate-45 group-data-[open]:translate-y-1.5 group-data-[open]:bg-black mb-1"/>
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:opacity-0 group-data-[open]:bg-black mb-1"/>
+          <span class="h-0.5 w-6 rounded-full bg-go2-blue transition ease transform duration-900 group-data-[open]:-rotate-45 group-data-[open]:-translate-y-1.5 group-data-[open]:bg-black"/>
+        </button>
+      </div>
     </div>
-    <div class="overflow-hidden h-0 group-data-[open]:h-96 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
-      <nav id="navigation" class="-translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
-        { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
-          <a href={url} class="px-6 py-4 flex flex-row justify-end text-black font-bold text-lg active:bg-go2-blue-dark">
-            <span class="mr-2">{title}</span>
-            <Image
-              src={icon}
-              alt={alt}
+    <div class="overflow-hidden h-0 group-data-[open]:h-4/5 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out">
+      <nav id="navigation" class="flex flex-col md:flex-row-reverse justify-end md:justify-start -translate-y-full group-data-[open]:-translate-y-0 motion-safe:transition-all duration-200 ease-in group-data-[open]:ease-out sm:mr-6 lg:mr-12 xl:mr-28 2xl:mr-48">
+        <div>
+          { Object.entries(navigationLinks).map(([title, { url, icon, alt }]) =>
+            <a href={url} class="px-6 py-3 flex flex-row justify-end text-black font-bold text-md active:bg-go2-blue hover:bg-go2-blue-hover">
+              <span class="mr-2">{title}</span>
+              <Image
+                src={icon}
+                alt={alt}
+              />
+            </a>
+          )}
+          <div class="p-4 flex flex-row justify-end">
+            <DownloadButton
+              title="Download GO2"
+              icon={downloadIcon}
+              className="text-sm py-2 items-center"
             />
-          </a>
-        )}
-        <div class="p-4 pb-16 flex flex-row justify-end">
-          <ActionButton
-            title="Download GO2"
-            href=""
-            icon={downloadIcon}
-          />
+          </div>
+        </div>
+        <div>
+          { Object.entries(secondaryNavigationLinks).map(([title, { url }]) =>
+            <a href={url} class="px-6 py-3 flex flex-row justify-end text-black text-sm">
+              <span class="mr-2">{title}</span>
+            </a>
+          )}
         </div>
       </nav>
     </div>
@@ -107,12 +142,6 @@ const navigationLinks = {
       }
     }
 
-    get navigationBar() {
-      const navigationBar = this.querySelector("[navigation-bar]");
-      if (!navigationBar) throw Error("No header found");
-      return navigationBar;
-    }
-
     get menuButton() {
       const menuButton = this.querySelector<HTMLButtonElement>("[menu-button]");
       if (!menuButton) throw Error("No menu button found");
@@ -137,5 +166,5 @@ const navigationLinks = {
     }
   }
 
-  customElements.define('main-navigation', MainNavigation);
+  customElements.define("main-navigation", MainNavigation);
 </script>

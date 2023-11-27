@@ -6,88 +6,157 @@ import FeatureCard from "@components/FeatureCard.astro";
 import FeatureInfo from "@components/FeatureInfo.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
-import healthIllustrationPlaceholder from "@images/health-illustration-placeholder.png";
-import healthIllustrationPlaceholder2 from "@images/health-illustration-placeholder-2.png";
+import healthHero from "@images/health-hero.png";
+import scienceHero from "@images/science-hero.png";
+import contactIcon from "@images/contact-icon.png";
 import ActionButton from "@components/ActionButton.astro";
+import AccordionItem from "@components/AccordionItem.astro";
+import Video from "@components/Video.astro";
+import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+import DownloadIconButton from "@components/DownloadIconButton.astro";
+import SupportButton from "@components/SupportButton.astro";
+import pricingHero from "@images/pricing-hero.png";
 ---
 
 <PageLayout title="GO2 - Home">
-	<Section id="home">
+	<Section id="home" className="bg-go2-blue-light pb-[0] pt-[0]" />
+	<Section id="video-section" className="pt-[0] bg-go2-blue-light h-[100vh]">
+		<Video />
 	</Section>
-	<Section id="features">
-		<SectionTitle title="Features"/>
-		<FeatureCard className="bg-pollutants justify-end">
-			<FeatureInfo
-				title="See the air you breathe"
-				description="Real-time air quality maps with unprecedented detail combine traffic and other emissions with weather data."
-				hasBackground
-			/>
-		</FeatureCard>
-		<FeatureCard className="bg-go2-blue-light">
-			<FeatureInfo
-				title="Track your exposure"
-				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
-			/>
-			<Image
-				src={exposureStatistics}
-				alt="Exposure statistics dial"
-			/>
-		</FeatureCard>
-		<FeatureCard className="bg-route-finding justify-end">
-			<FeatureInfo
-				title="Track your exposure"
-				description="Keep tabs on your exposure to pollutants every day. See monthly and yearly data to fully enjoy the benefits to health and happiness."
-				hasBackground
-			/>
-		</FeatureCard>
-	</Section>
-	<Section
-		id="health-and-well-being"
-		className="bg-go2-blue-light"
-	>
-		<SectionTitle title="Health and well-being"/>
-		<Image
-			src={healthIllustrationPlaceholder}
-			alt="Health illustration placeholder"
-			class="w-screen max-w-none"
-		/>
-		<h3 class="text-2xl">
-			Improve health, increase happiness
-		</h3>
-		<div class="flex flex-col gap-4">
-			<p>Air pollutants lead to poor health and reduced self esteem.</p>
-			<p>Pollution lowers productivity levels and income earnings.</p>
-			<p>Less environmental stress leads to less distress and better life satisfaction.</p>
+	<Section id="features" className="mt-20 scroll-mt-8">
+		<SectionTitle title="Features" />
+		<div class="md:w-3/4 lg:w-2/3 xl:w-1/2 md:flex">
+			<div class="md:w-1/2">
+				<div class="flex my-4 md:mr-2">
+					<FeatureCard className="bg-pollutants justify-end">
+						<FeatureInfo
+							title="Air Pollution Maps"
+							description="A choice of four air pollutant maps caused by traffic and other sources updated every hour."
+							hasBackground
+						/>
+					</FeatureCard>
+				</div>
+				<div class="flex my-4 md:mr-2">
+					<FeatureCard className="bg-go2-blue-light justify-around">
+						<Image
+							src={exposureStatistics}
+							alt="Exposure statistics dial"
+							class="hidden md:block"
+						/>
+						<FeatureInfo
+							title="Exposure Record"
+							description="Daily recordings of your exposure to four air pollutants, based on location, highlighting healthy navigation activities."
+						/>
+						<Image
+							src={exposureStatistics}
+							alt="Exposure statistics dial"
+							class="md:hidden"
+						/>
+					</FeatureCard>
+				</div>
+			</div>
+			<div class="md:w-1/2 flex justify-center items-center">
+				<div class="md:flex md:flex-col md:w-[100%] md:ml-2">
+					<FeatureCard className="bg-route-finding justify-end md:w-[100%]">
+						<FeatureInfo
+							title="Healthy Navigation"
+							description="Calculating the least polluted route to your destination with step-by-step report."
+							hasBackground
+						/>
+					</FeatureCard>
+				</div>
+			</div>
 		</div>
-		<ActionButton title="Learn more" />
 	</Section>
-	<Section
-		id="science"
-		className="bg-go2-blue"
-	>
-		<SectionTitle
-			title="Science"
-			className="text-white"
-		/>
+	<Section id="health-and-well-being" className="bg-go2-blue-light">
+		<SectionTitle title="Benefits" />
 		<Image
-			src={healthIllustrationPlaceholder2}
-			alt="Health illustration placeholder 2"
-			class="w-screen max-w-none"
+			src={healthHero}
+			alt="Person running, bicycle"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
 		/>
-		<h3 class="text-2xl text-white">
-			Obsessed with scientific accuracy
-		</h3>
-		<div class="flex flex-col gap-4 text-white">
-			<p>Uniquely accurate, evolving AI model combining traffic, emissions and weather data.</p>
-			<p>More compounds added constantly to model indoor and outdoor environments.</p>
-			<p>Finland-based international team with 2000+ top-level peer-reviewed papers.</p>
-		</div>
+		<ScrollInAnimation>
+			<h3 class="text-2xl text-center mb-5">Environmental Justice</h3>
+			<div class="flex flex-col gap-4 text-center">
+				<p>
+					Seek a better quality of life with increased life expectancy and
+					contribute to decarbonisation
+				</p>
+			</div>
+		</ScrollInAnimation>
+		<ActionButton title="Learn more" href="/benefits" />
+	</Section>
+	<Section id="science" className="bg-go2-blue">
+		<SectionTitle title="Research" className="text-white" />
+		<Image
+			src={scienceHero}
+			alt="Cloud and connectivity"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
+		/>
+		<ScrollInAnimation>
+			<h3 class="text-2xl text-white text-center mb-5">Scientific Approach</h3>
+			<div class="flex flex-col gap-4 text-white text-center">
+				<p>
+					Applying AI to reduce air pollution with optional pairing with
+					miniature sensors. Helping make people flow a smooth and pleasant
+					experience
+				</p>
+			</div>
+		</ScrollInAnimation>
 		<ActionButton
 			title="Learn more"
 			className="bg-go2-blue-light text-go2-blue"
+			href="/research"
 		/>
 	</Section>
-	<footer id="footer">
-		
-	</footer>
+	<Section
+		id="Download"
+		className="bg-clouds-bottom w-full bg-cover bg-center sm:bg-clouds-bottom-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-bottom"
+	>
+		<h3
+			class="text-2xl text-black text-center w-7/12 my-6 sm:w-1/3 sm:my-12 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
+		>
+			Join the movement Download GO2
+		</h3>
+		<DownloadIconButton />
+	</Section>
+	<Section id="membership-home" className="bg-go2-blue-light">
+		<Image
+			src={pricingHero}
+			alt="Bird with a key"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
+		/>
+		<h3 class="text-2xl">Membership</h3>
+		<div class="flex flex-col gap-4 items-center sm:w-1/2">
+			<p class="text-center">
+				Unlock the potentials for Better Quality of Life. Become part of the
+				clean air narrative, as we expand the coverage across the country, add
+				new features to keep you healthy, and accelerate the speed of the GO2
+				experience.
+			</p>
+		</div>
+		<ActionButton title="Learn more" href="/membership" />
+	</Section>
+	<Section
+		id="support"
+		className="bg-clouds-top w-full bg-cover bg-center sm:bg-clouds-top-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-top sm:mb-32"
+	>
+		<SectionTitle title="Your feedback" />
+		<Image
+			src={contactIcon}
+			alt="Speech bubble"
+			class="w-1/3 sm:w-1/6 xl:w-1/12 sm:mb-8"
+		/>
+		<h3 class="text-2xl">How can we improve?</h3>
+		<ScrollInAnimation>
+			<div class="flex flex-col gap-4 text-center">
+				<p>
+					We value your feedback to understand the user experiences, identifying
+					areas for improvement, and making informed updates. We will implement
+					a feedback form within the app
+				</p>
+			</div>
+		</ScrollInAnimation>
+		<SupportButton />
+	</Section>
 </PageLayout>

@@ -1,0 +1,59 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+
+---
+
+<PageLayout title="GO2 - About MegaSense">
+  <Section
+    id="about-page"
+    className="bg-go2-blue-light pb-4"
+  >
+	</Section>
+  <Section
+		id="about-megasense"
+		className="bg-go2-blue-light pb-8"
+	>
+		<h3 class="text-2xl">
+			About MegaSense
+		</h3>
+		<div class="flex flex-col gap-4 sm:w-1/2">
+			<p class="text-center text-sm">Advanced data analytics, and unprecedented spatial granularity to deliver unparalled accuracy and real-time insights</p>
+		</div>
+	</Section>
+  <Section
+    id="about-text-1"
+    className="pt-4 pb-8"
+  >
+    <div class="flex flex-col gap-4">
+      <p class="text-xs">
+        MegaSense models simulate transformation of pollutants and greenhouse gases in the atmosphere. Generating high resolution forecasting and insights at street and single building level. Making it easy for users to interpret and act upon the air quality and climate change information. MegaSense cloud installations make it ready for global deployments.
+      </p>
+    </div>
+  </Section>
+  <Section
+    id="about-text-2"
+    className="pt-4"
+  >
+    <div class="flex flex-col gap-4">
+      <h4 class="text-l font-bold w-full text-start">
+        Integrated Data Fusion
+      </h4>
+      <p class="text-xs">
+        Computational models to simulate and analyse the dispersion, transport, and chemical transformation of pollutants in the atmosphere
+      </p>
+      <h4 class="text-l font-bold w-full text-start">
+        Adaptive and self learning
+      </h4>
+      <p class="text-xs">
+        Hyper-Local forecasting providing insights at street and single building level. AI and ML techniques to continuously improve the forecasting model
+      </p>
+      <h4 class="text-l font-bold w-full text-start">
+        Accurate predictions
+      </h4>
+      <p class="text-xs">
+        Integration with IoT and sensor networks: dynamic data collection making it easier for users to interpret and act upon the air quality information.
+      </p>
+    </div>
+  </Section>
+</PageLayout>

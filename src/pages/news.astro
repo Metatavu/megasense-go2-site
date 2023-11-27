@@ -1,0 +1,54 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import SectionTitle from "@components/SectionTitle.astro";
+import newsHero from "@images/news-hero.png";
+import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+import ActionButton from "@components/ActionButton.astro";
+
+---
+
+<PageLayout title="GO2 - News">
+  <Section
+    id="news-page"
+    className="bg-go2-blue-light pb-[0px]"
+  >
+	</Section>
+  <Section
+		id="news-start"
+		className="bg-go2-blue-light"
+	>
+		<Image
+			src={newsHero}
+			alt="Jigsaw pieces"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
+		/>
+		<h3 class="text-2xl">
+			News
+		</h3>
+    <div class="flex flex-col gap-4 items-center sm:w-1/2">
+			<p class="text-center">After London</p>
+		</div>
+	</Section>
+  <Section id="news-slush">
+    <SectionTitle
+      title="15 Nov 2023"
+      className="text-go2-blue"
+    />
+    <ScrollInAnimation className="sm:w-1/2">
+      <h3 class="text-2xl text-black text-center mb-5">
+        MegaSense GO2 becomes available at Slush 2023
+      </h3>
+      <div class="flex flex-col gap-4 text-black text-center items-center">
+        <p>Slush is a world-renowned startup event, hosting some of the biggest world conquering companies.</p>
+        <p>Join the MegaSense team  on November 30th and December 1st 2023. </p>
+        <p>We will be making available the first version of the GO2 app.</p>
+      </div>
+    </ScrollInAnimation>
+    <ActionButton
+      title="read more"
+      href="https://slush.org/"
+    />
+  </Section>
+</PageLayout>

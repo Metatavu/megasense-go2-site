@@ -1,0 +1,189 @@
+---
+import { Image } from "astro:assets";
+import pauseIcon from "@images/pause-icon.svg";
+import playIcon from "@images/play-icon.svg";
+import muteIcon from "@images/mute-icon.svg";
+import iconVolumeOff from "@images/icon-volume-off.svg";
+import downArrow from "@images/down-arrow-icon-grey.svg";
+import "../styles/subtitles.css";
+
+const videoUrlWebM = import.meta.env.PUBLIC_VIDEO_URL_WEBM;
+const videoUrlMp4 = import.meta.env.PUBLIC_VIDEO_URL_MP4;
+const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
+
+---
+
+<video-player>
+  <figure class="w-screen relative flex items-center justify-center">
+    <!-- Muted attribute required for autoplay to work in chrome -->
+    <video
+      id="video"
+      controls
+      preload="metadata"
+      poster={videoPlaceholder}
+      autoplay
+      muted
+      class="h-video max-h-video w-full object-cover object-center sm:w-[55vh]"
+      playsinline
+    >
+      <source src={videoUrlWebM} type="video/webm" />
+      <source src={videoUrlMp4} type="video/mp4" />
+    </video>
+    <ul
+      id="video-controls"
+      class="absolute bottom-10 flex w-screen px-6 gap-4 sm:w-2/3 lg:w-1/2 2xl:w-1/3 justify-between"
+    >
+      <li class="flex items-center">
+        <button id="playpause" type="button">
+          <Image id="pause-icon" src={pauseIcon} alt="pause icon" />
+          <Image id="play-icon" src={playIcon} class="hidden" alt="play icon" />
+        </button>
+      </li>
+      <li class="flex items-center grow">
+        <progress
+          id="progress"
+          value="0"
+          class="h-1 [&::-webkit-progress-bar]:bg-white [&::-webkit-progress-value]:bg-go2-blue [&::-moz-progress-bar]:bg-go2-blue w-full cursor-pointer"
+        >
+          <span id="progress-bar"></span>
+        </progress>
+      </li>
+      <li class="flex items-center">
+        <button id="mute" type="button">
+          <Image id="mute-icon" src={muteIcon} class="hidden" alt="mute icon" />
+          <Image id="icon-volume-off" src={iconVolumeOff} alt="volume off icon" />
+        </button>
+      </li>
+    </ul>
+    <div class="absolute bottom-2 flex w-screen justify-around">
+      <a id="scroll-down-button" href="#features">
+        <Image src={downArrow} alt="down arrow icon" />
+      </a>
+    </div>
+  </figure>
+</video-player>
+
+
+<script>
+  class VideoPlayer extends HTMLElement {
+    constructor() {
+      super();
+      const supportsVideo = !!document.createElement("video").canPlayType;
+      if (supportsVideo) {
+        const video = document.getElementById("video") as HTMLVideoElement;
+
+        video.controls = false;
+
+        const playpause = document.getElementById("playpause") as HTMLElement;
+        const progress = document.getElementById("progress") as HTMLProgressElement;
+        const progressBar = document.getElementById("progress-bar") as HTMLProgressElement;
+        const mute = document.getElementById("mute") as HTMLElement;
+        const pauseIcon = document.getElementById("pause-icon") as HTMLElement;
+        const playIconHidden = document.getElementById("play-icon") as HTMLElement;
+        const muteIconHidden = document.getElementById("mute-icon") as HTMLElement;
+        const volumeOffIcon = document.getElementById("icon-volume-off") as HTMLElement;
+        const scrollDownButton = document.getElementById("scroll-down-button") as HTMLElement;
+
+        const playIcon = playIconHidden.cloneNode(true) as HTMLElement;
+        const muteIcon = muteIconHidden.cloneNode(true) as HTMLElement;
+        playIcon.classList.toggle("hidden");
+        muteIcon.classList.toggle("hidden");
+
+        const subs = "/subtitles.vtt"
+
+        // Needed to ensure subtitles appear due to use of Astros ViewTransitions
+        const subtitles = document.createElement("track");
+        subtitles.kind = "subtitles";
+        subtitles.srclang = "en";
+        subtitles.label = "English";
+        subtitles.srclang = "en"
+        subtitles.src = subs;
+        subtitles.default = true;
+
+        video.appendChild(subtitles);
+
+        const track = video.textTracks[0];
+
+        // This does not work for the first cue of subtitles, fix by inserting additional initial blank cue in .vtt
+        const onCueChange = (event: Event) => {
+          const cues = (event.currentTarget as TextTrack).cues;
+          if (!cues) return;
+
+          for (let i = 0; i < cues.length; i++) {
+            (cues[i] as VTTCue).line = -5
+          }
+        }
+
+        track.addEventListener("cuechange", onCueChange);
+
+        playpause.addEventListener("click", () => {
+          if (video.paused || video.ended) {
+            playpause.innerHTML = "";
+            playpause.appendChild(pauseIcon);
+            video.play();
+          } else {
+            video.pause();
+            playpause.innerHTML = "";
+            playpause.appendChild(playIcon);
+          }
+        });
+
+        video.addEventListener("loadedmetadata", () => {
+          progress.setAttribute("max", video.duration.toString());
+        });
+
+        video.addEventListener("timeupdate", () => {
+          progress.value = video.currentTime;
+          progressBar.style.width = `${Math.floor(
+            (video.currentTime * 100) / video.duration,
+          )}%`;
+        });
+
+        video.addEventListener("timeupdate", () => {
+          if (!progress.getAttribute("max"))
+            progress.setAttribute("max", video.duration.toString());
+          progress.value = video.currentTime;
+          progressBar.style.width = `${Math.floor(
+            (video.currentTime * 100) / video.duration,
+          )}%`;
+        });
+
+        video.addEventListener("ended", () => {
+          playpause.innerHTML = "";
+          playpause.appendChild(playIcon);
+          video.autoplay = false;
+          video.load();
+        });
+
+        progress.addEventListener("click", (e) => {
+          const rect = progress.getBoundingClientRect();
+          const position = (e.pageX - rect.left) / progress.offsetWidth;
+          video.currentTime = position * video.duration;
+        });
+
+        mute.addEventListener("click", () => {
+          if (video.muted) {
+            video.muted = false;
+            mute.innerHTML = "";
+            mute.appendChild(muteIcon);
+          } else {
+            video.muted = true;
+            mute.innerHTML = "";
+            mute.appendChild(volumeOffIcon);
+          }
+        });
+
+        scrollDownButton.addEventListener("click", () => {
+          const targetElement = document.getElementById("features");
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: "smooth",
+              block:"start",
+            });
+          }
+        })
+      }
+    }
+  }
+  customElements.define("video-player", VideoPlayer);
+</script>

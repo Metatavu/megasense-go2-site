@@ -1,0 +1,75 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import scienceHeroSubpage from "@images/science-hero-subpage.png";
+import accuracy from "@images/accuracy.png";
+import sensors from "@images/sensors-on-shaded.png";
+import peopleFlow from "@images/people-flow.png";
+import GenericReadMoreCard from "@components/GenericReadMoreCard.astro";
+
+---
+
+<PageLayout title="GO2 - Research">
+  <Section
+    id="research-page"
+    className="bg-go2-blue-light pb-[0px]"
+  >
+	</Section>
+  <Section
+		id="research-start"
+		className="bg-go2-blue-light"
+	>
+		<Image
+			src={scienceHeroSubpage}
+			alt="Cloud and connectivity"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
+		/>
+		<h3 class="text-2xl">
+			Research
+		</h3>
+		<div class="flex flex-col gap-4 items-center sm:w-1/2">
+			<p class="text-center">AI Forecasting</p>
+			<p class="text-center">Air Quality Monitors</p>
+		</div>
+	</Section>
+  <Section
+    id="megasense-method"
+    className="bg-white"
+  >
+    <GenericReadMoreCard
+      image={accuracy}
+      altText="Multiple points connected"
+      sectionTitle="Computation"
+      heading="AI to forecast air pollution"
+      content="MegaSense scientists use AI (Artificial Intelligence) models to forecast air pollution, leveraging advanced data analytics and machine learning techniques. We develop models to to improve GO2 predictions of air pollution by analysing various environmental, meteorological, and anthropogenic factors."
+      readMoreContent="Here are some common AI approaches we use to improve air pollution forecasting: \n 1. Regression Models: Linear regression, decision trees, and random forests can predict emission inventories based on historical data and relevant features. \n 2. Physics-Based Models with Machine Learning: Combining physics-based models (based on atmospheric science principles) with machine learning techniques to improve the representation of complex interactions in the atmosphere. \n 3. IoT and Sensor Networks: Integrating real-time data from IoT devices and sensor networks allowing for more accurate and timely air quality predictions."
+    />
+  </Section>
+  <Section
+    id="data-cloud"
+    className="bg-go2-blue-light"
+  >
+    <GenericReadMoreCard
+      image={sensors}
+      altText="Cloud"
+      sectionTitle="Sensors"
+      heading="Air Quality Monitors"
+      content="MegaSense  advanced air quality monitors are available to validate the MegaSense AI models. MegaSense devices measure all major pollutants, and connect to smartphone and WIFI enabling easy and accurate monitoring."
+      readMoreContent="MegaSense air quality sensors offer several benefits that contribute to improved monitoring, awareness, and management of air quality. Here are some key advantages: \n 1. Low-cost compared to traditional air quality monitoring equipment. \n 2. Compact and easy to deploy. \n 3. Real-time data, allowing for quick response to changing air quality conditions.\n 4. Can deploy a larger number of sensors, enabling more granular spatial resolution. \n 5. Individuals can use MegaSense sensors to monitor air quality at their homes, workplaces, or during outdoor activities. \n 6.Complement official monitoring networks by providing additional data points, especially in areas with limited coverage."
+    />
+  </Section>
+  <Section
+    id="team"
+    className="bg-white"
+  >
+    <GenericReadMoreCard
+      image={peopleFlow}
+      altText="Stack of paperwork"
+      sectionTitle="Untangling People flow"
+      heading="Smooth and efficient navigation"
+      content="MegaSense is part of the Untangling People Flow consortium. We are modelling traffic emissions and promoting sustainable transport for a smarter built environment. Wayfinding in crowded spaces and improving indoor air quality. Making public events and gatherings safer with temporary Air Quality Impact analytics."
+      readMoreContent="Managing people flow and decreasing air pollution concentrations involve implementing strategies that address transportation, urban planning, and lifestyle choices. Here are several approaches that can contribute to achieving these goals: \n 1. Encourage the use of public transportation, such as buses, trains, and subways, to reduce the number of individual vehicles on the road. \n 2. Promote walking, cycling, and other forms of active transportation to reduce reliance on motorized vehicles for short-distance trips. \n 3. Implement smart traffic light systems that optimize traffic flow, reduce congestion, and minimize unnecessary idling, which can contribute to air pollution. \n 4. Promote mixed-use development that integrates residential, commercial, and recreational spaces. \n 5. Increase the number of green spaces within urban areas to absorb pollutants and provide residents with alternative recreational spaces."
+    />
+  </Section>
+</PageLayout>

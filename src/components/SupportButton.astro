@@ -1,0 +1,33 @@
+---
+
+
+---
+<support-button>
+  <button
+    class="support-button rounded-full bg-go2-blue text-[#fff] flex flex-row gap-2 px-6 py-3 uppercase md:hover:cursor-pointer"
+  >
+    Contact support
+  </button>
+</support-button>
+
+<script>
+  class SupportButton extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector(".support-button");
+
+      button?.addEventListener("click", () => {
+        openEmail();
+      });
+
+      /**
+       * Opens the email client
+       */
+      const openEmail = () => {
+        window.location.href = `mailto:${import.meta.env.PUBLIC_SUPPORT_EMAIL}`;
+      }
+    }
+  }
+  customElements.define("support-button", SupportButton);
+</script>
