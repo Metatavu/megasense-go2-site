@@ -94,6 +94,8 @@ const { image } = Astro.props;
 </waitlist-form>
 
 <script>
+  import type { Country } from "src/types";
+
   class WaitlistForm extends HTMLElement {
     constructor() {
       super();
@@ -123,17 +125,16 @@ const { image } = Astro.props;
           return;
         }
 
-        // TODO: Is there a better way to do this?
         fetch("https://restcountries.com/v3.1/all")
           .then(response => response.json())
           .then(data => {
             data.sort((
-              { name: { common: countryA } }: { name: { common: string } },
-              { name: { common: countryB } }: { name: { common: string } }) => {
+              { name: { common: countryA } }: Country,
+              { name: { common: countryB } }: Country) => {
               return countryA.localeCompare(countryB);
             });
 
-            data.forEach(({name: { common }}: { name: { common: string } }) => {
+            data.forEach(({name: { common }}: Country) => {
               const option = document.createElement("option");
               option.value = common;
               option.text = common;
