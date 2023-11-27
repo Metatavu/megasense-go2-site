@@ -109,8 +109,13 @@ const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
           const cues = (event.currentTarget as TextTrack).cues;
           if (!cues) return;
 
+          const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+          const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+
+          const lineValue = isSafari || isFirefox ? -3 : -5;
+
           for (let i = 0; i < cues.length; i++) {
-            (cues[i] as VTTCue).line = -5
+            (cues[i] as VTTCue).line = lineValue;
           }
         }
 
