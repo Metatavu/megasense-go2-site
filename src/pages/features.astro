@@ -5,35 +5,28 @@ import SectionTitle from "@components/SectionTitle.astro";
 import { Image } from "astro:assets";
 import exposureStatistics from "@images/exposure-statistics.png";
 import featuresHero from "@images/features-hero.png";
-import pollutants from "@images/square-pollutants.jpg"
-import squareRouteFinding from "@images/square-route-finding.jpg"
+import pollutants from "@images/square-pollutants.jpg";
+import squareRouteFinding from "@images/square-route-finding.jpg";
 import ReadMoreButtonAccordion from "@components/ReadMoreButtonAccordion.astro";
 import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
-
 ---
 
 <PageLayout title="GO2 - Features">
-  <Section id="features-page" className="bg-go2-blue-light pb-[0px]">
-	</Section>
-  <Section
-		id="features-start"
-		className="bg-go2-blue-light"
-	>
-		<Image
-			src={featuresHero}
-			alt="Birds, measurement dial, route planning"
-			class="w-full max-w-none max-h-hero-image sm:w-[500px] sm:mb-8"
-		/>
-		<h3 class="text-2xl">
-			Features
-		</h3>
-		<div class="flex flex-col gap-4 sm:w-1/2 items-center">
-			<p>About me</p>
-		</div>
-	</Section>
-	<Section id="air-quality-map">
-		<SectionTitle title="Air pollution map"/>
-    <div class="max-h-[50vh] overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
+  <Section id="features-page" className="bg-go2-blue-light pb-[0px]" />
+  <Section id="features-start" className="bg-go2-blue-light">
+    <Image
+      src={featuresHero}
+      alt="Birds, measurement dial, route planning"
+      class="w-full max-w-none sm:w-[500px] sm:mb-8"
+    />
+    <h3 class="text-2xl">Features</h3>
+    <div class="flex flex-col gap-4 sm:w-1/2 items-center">
+      <p>About me</p>
+    </div>
+  </Section>
+  <Section id="air-quality-map">
+    <SectionTitle title="Air pollution map" />
+    <div class="overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
       <Image
         src={pollutants}
         alt="Pollutants represented on a map"
@@ -41,11 +34,14 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
       />
     </div>
     <FadeInAnimation className="sm:w-1/2">
-      <h3 class="text-2xl text-center mb-5">
-        Today’s four pollutants
-      </h3>
+      <h3 class="text-2xl text-center mb-5">Today’s four pollutants</h3>
       <div class="flex flex-col gap-4 items-center">
-        <p class="text-center">Air pollution maps combining live traffic data and other fossil fuel emissions modelled with hourly  weather conditions. See how the air pollutants drift over the city and effects of heavy traffic on air quality.</p>
+        <p class="text-center">
+          Air pollution maps combining live traffic data and other fossil fuel
+          emissions modelled with hourly weather conditions. See how the air
+          pollutants drift over the city and effects of heavy traffic on air
+          quality.
+        </p>
       </div>
     </FadeInAnimation>
     <ReadMoreButtonAccordion
@@ -53,62 +49,56 @@ import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
       className="bg-transparent text-go2-blue border border-go2-blue"
     />
   </Section>
-  <Section
-    id="exposure-tracking"
-    className="bg-go2-blue-light"
-  >
-    <SectionTitle title="exposure record"/>
-    <div class="max-h-[50vh] overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
-      <Image
-        src={exposureStatistics}
-        alt="Exposure statistics dial"
-      />
+  <Section id="exposure-tracking" className="bg-go2-blue-light">
+    <SectionTitle title="exposure record" />
+    <div class="overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
+      <Image src={exposureStatistics} alt="Exposure statistics dial" />
     </div>
     <FadeInAnimation>
-      <h3 class="text-2xl text-center mb-5">
-        Today in micrograms
-      </h3>
+      <h3 class="text-2xl text-center mb-5">Today in micrograms</h3>
       <div class="flex flex-col gap-4">
-        <p class="text-center"> Exposure information based on location in the air pollution map.
+        <p class="text-center">
+          Exposure information based on location in the air pollution map.
         </p>
         <p class="text-center">
-          Whether at home or using the healthy navigation your exposure  to four pollutants is recorded in micrograms.
-          </p>
+          Whether at home or using the healthy navigation your exposure to four
+          pollutants is recorded in micrograms.
+        </p>
         <p class="text-center">
-          Allowing you to take control of your exposure and change your daily & weekly routine and see the benefits.</p>
+          Allowing you to take control of your exposure and change your daily &
+          weekly routine and see the benefits.
+        </p>
       </div>
     </FadeInAnimation>
     <ReadMoreButtonAccordion
       content="Reducing exposure to air pollutants is crucial for maintaining good health. Here are several measures you can take to minimize your exposure to common air pollutants: \n 1. Stay Informed: check your exposure record and local air quality forecasts. \n 2. Limit Outdoor Activities during poor air quality: This is important for children, the elderly, and individuals with respiratory conditions. \n 3.Use the healthy navigation and choose low-pollution times: Pollution tends to be higher during rush hours and with certain weather conditions. \n 4. Avoid High-Traffic Areas: Especially during congested times. \n 5. Use Public Transportation. Opt for public transportation, biking, or walking to reduce your contribution to traffic-related pollution. \n 6. Keep Indoor Air Clean: Ventilate your home regularly by opening windows and doors, especially when cooking or cleaning."
       className="bg-transparent text-go2-blue border border-go2-blue"
     />
-	</Section>
-	<Section
-		id="clean-routing"
-		className="bg-white"
-	>
-		<SectionTitle
-			title="healthy navigation"
-			className="text-go2-blue"
-		/>
-    <div class="max-h-[50vh] overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
-      <Image
-        src={squareRouteFinding}
-        alt="Map with a route shown"
-      />
+  </Section>
+  <Section id="clean-routing" className="bg-white">
+    <SectionTitle title="healthy navigation" className="text-go2-blue" />
+    <div class="overflow-hidden sm:w-1/2 xl:w-1/3 2xl:w-1/4">
+      <Image src={squareRouteFinding} alt="Map with a route shown" />
     </div>
     <FadeInAnimation>
       <h3 class="text-2xl text-black text-center mb-5">
         Today’s healtiest route
       </h3>
       <div class="flex flex-col gap-4 text-black text-center">
-        <p>Choose the healthiest route to any destination when  walking, running or cycling, and follow the cleanest air. </p>
-        <p>Your healthy route exposure to the modelled air pollution is calculated in high-resolution, step-by-step, and you can replay the trip.</p>
+        <p>
+          Choose the healthiest route to any destination when walking, running
+          or cycling, and follow the cleanest air.
+        </p>
+        <p>
+          Your healthy route exposure to the modelled air pollution is
+          calculated in high-resolution, step-by-step, and you can replay the
+          trip.
+        </p>
       </div>
     </FadeInAnimation>
-		<ReadMoreButtonAccordion
+    <ReadMoreButtonAccordion
       content="Several factors contribute to the overall relationship between physical activity and air pollution: \n 1. Regular physical activity can lead to adaptations in the respiratory system, including increased lung capacity and efficiency. This may enhance the ability to cope with the respiratory effects of air pollution. \n 2. Exercise has known cardiovascular benefits, including improved heart health, blood circulation, and blood vessel function. These benefits may counteract some of the negative cardiovascular effects associated with air pollution. \n 3. Exercise can stimulate the body's antioxidant defense mechanisms. Antioxidants help combat oxidative stress, a process that is heightened by exposure to air pollutants. This may contribute to mitigating the negative effects of pollution. \n 4. People who engage in regular physical activity are often more conscious of their health and may adopt other healthy behaviors, such as maintaining a balanced diet and avoiding smoking. \n It's important to note that while physical activity has numerous health benefits, there is a consensus that exposure to high levels of air pollution, especially during vigorous outdoor exercise in heavily polluted areas, can pose health risks."
       className="bg-transparent text-go2-blue border border-go2-blue"
     />
-	</Section>
+  </Section>
 </PageLayout>

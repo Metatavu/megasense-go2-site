@@ -16,7 +16,6 @@ import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
 import DownloadIconButton from "@components/DownloadIconButton.astro";
 import SupportButton from "@components/SupportButton.astro";
 import pricingHero from "@images/pricing-hero.png";
-
 ---
 
 <PageLayout title="GO2 - Home">
@@ -28,7 +27,7 @@ import pricingHero from "@images/pricing-hero.png";
 		<SectionTitle title="Features" />
 		<div class="md:w-3/4 lg:w-2/3 xl:w-1/2 md:flex">
 			<div class="md:w-1/2">
-				<div class="flex md:h-[600px] my-4 md:mr-2">
+				<div class="flex my-4 md:mr-2">
 					<FeatureCard className="bg-pollutants justify-end">
 						<FeatureInfo
 							title="Air Pollution Maps"
@@ -37,12 +36,12 @@ import pricingHero from "@images/pricing-hero.png";
 						/>
 					</FeatureCard>
 				</div>
-				<div class="flex md:h-[600px] my-4 md:mr-2">
-					<FeatureCard className="bg-go2-blue-light">
+				<div class="flex my-4 md:mr-2">
+					<FeatureCard className="bg-go2-blue-light justify-around">
 						<Image
 							src={exposureStatistics}
 							alt="Exposure statistics dial"
-							class="hidden md:block 2xl:max-h-[70%] 2xl:max-w-[70%]"
+							class="hidden md:block"
 						/>
 						<FeatureInfo
 							title="Exposure Record"
@@ -57,8 +56,8 @@ import pricingHero from "@images/pricing-hero.png";
 				</div>
 			</div>
 			<div class="md:w-1/2 flex justify-center items-center">
-				<div class="md:flex md:flex-col md:w-[100%] md:h-[600px] md:ml-2">
-					<FeatureCard className="bg-route-finding justify-end md:h-[600px] md:w-[100%]">
+				<div class="md:flex md:flex-col md:w-[100%] md:ml-2">
+					<FeatureCard className="bg-route-finding justify-end md:w-[100%]">
 						<FeatureInfo
 							title="Healthy Navigation"
 							description="Calculating the least polluted route to your destination with step-by-step report."
@@ -74,12 +73,15 @@ import pricingHero from "@images/pricing-hero.png";
 		<Image
 			src={healthHero}
 			alt="Person running, bicycle"
-			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
 		/>
 		<ScrollInAnimation>
 			<h3 class="text-2xl text-center mb-5">Environmental Justice</h3>
 			<div class="flex flex-col gap-4 text-center">
-				<p>Seek a better quality of life with increased life expectancy and contribute to  decarbonisation</p>
+				<p>
+					Seek a better quality of life with increased life expectancy and
+					contribute to decarbonisation
+				</p>
 			</div>
 		</ScrollInAnimation>
 		<ActionButton title="Learn more" href="/benefits" />
@@ -89,14 +91,16 @@ import pricingHero from "@images/pricing-hero.png";
 		<Image
 			src={scienceHero}
 			alt="Cloud and connectivity"
-			class="w-full max-w-none max-h-home-hero-image sm:w-[500px] sm:mb-8"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
 		/>
 		<ScrollInAnimation>
-			<h3 class="text-2xl text-white text-center mb-5">
-				Scientific Approach
-			</h3>
+			<h3 class="text-2xl text-white text-center mb-5">Scientific Approach</h3>
 			<div class="flex flex-col gap-4 text-white text-center">
-				<p>Applying AI to reduce air pollution with optional pairing with miniature sensors. Helping make people flow a smooth and pleasant experience </p>
+				<p>
+					Applying AI to reduce air pollution with optional pairing with
+					miniature sensors. Helping make people flow a smooth and pleasant
+					experience
+				</p>
 			</div>
 		</ScrollInAnimation>
 		<ActionButton
@@ -112,31 +116,31 @@ import pricingHero from "@images/pricing-hero.png";
 		<h3
 			class="text-2xl text-black text-center w-7/12 my-6 sm:w-1/3 sm:my-12 md:w-1/2 lg:w-1/4 xl:w-1/5 2xl:w-1/6"
 		>
-		Join the movement Download GO2
+			Join the movement Download GO2
 		</h3>
 		<DownloadIconButton />
 	</Section>
-	<Section
-		id="membership-home"
-		className="bg-go2-blue-light"
-	>
+	<Section id="membership-home" className="bg-go2-blue-light">
 		<Image
 			src={pricingHero}
 			alt="Bird with a key"
-			class="w-full max-w-none max-h-hero-image sm:w-[500px] sm:mb-8"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
 		/>
-		<h3 class="text-2xl">
-			Membership
-		</h3>
+		<h3 class="text-2xl">Membership</h3>
 		<div class="flex flex-col gap-4 items-center sm:w-1/2">
-			<p class="text-center">Unlock the potentials for Better Quality of Life.  Become part of the clean air narrative, as we expand the coverage across the country, add new features to keep you healthy, and accelerate the speed of the GO2 experience.</p>
+			<p class="text-center">
+				Unlock the potentials for Better Quality of Life. Become part of the
+				clean air narrative, as we expand the coverage across the country, add
+				new features to keep you healthy, and accelerate the speed of the GO2
+				experience.
+			</p>
 		</div>
-		<ActionButton
-			title="Learn more"
-			href="/membership"
-		/>
+		<ActionButton title="Learn more" href="/membership" />
 	</Section>
-	<Section id="support" className="bg-clouds-top w-full bg-cover bg-center sm:bg-clouds-top-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-top sm:mb-32">
+	<Section
+		id="support"
+		className="bg-clouds-top w-full bg-cover bg-center sm:bg-clouds-top-lg sm:h-[50vh] sm:bg-contain sm:bg-no-repeat sm:bg-top sm:mb-32"
+	>
 		<SectionTitle title="Your feedback" />
 		<Image
 			src={contactIcon}
