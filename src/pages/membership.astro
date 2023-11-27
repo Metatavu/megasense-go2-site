@@ -1,0 +1,62 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Section from "@components/Section.astro";
+import { Image } from "astro:assets";
+import pricingHero from "@images/pricing-hero.png";
+import SubscriptionOptionsCard from "@components/SubscriptionOptionsCard.astro";
+import SectionTitle from "@components/SectionTitle.astro";
+import FadeInAnimation from "@components/animations/FadeInAnimation.astro";
+import SupportButton from "@components/SupportButton.astro";
+import contactIcon from "@images/contact-icon.png";
+import ScrollInAnimation from "@components/animations/ScrollInAnimation.astro";
+
+---
+
+<PageLayout title="GO2 - Membership">
+  <Section
+    id="membership-page"
+    className="bg-go2-blue-light pb-[0px]"
+  >
+	</Section>
+  <Section
+		id="membership"
+		className="bg-go2-blue-light"
+	>
+		<Image
+			src={pricingHero}
+			alt="Bird with a key"
+			class="w-full max-w-none sm:w-[500px] sm:mb-8"
+		/>
+		<h3 class="text-2xl">
+			Membership
+		</h3>
+		<div class="flex flex-col gap-4 items-center sm:w-1/2">
+			<p class="text-center">Unlock the potentials for Better Quality of Life.  Become part of the clean air narrative, as we expand the coverage across the country, add new features to keep you healthy, and accelerate the speed of the GO2 experience.</p>
+		</div>
+	</Section>
+  <Section id="membership-feedback" className="bg-white">
+		<SectionTitle title="Your feedback" />
+		<Image
+			src={contactIcon}
+			alt="Speech bubble"
+			class="w-1/3 sm:w-1/6 xl:w-1/12 sm:mb-8"
+		/>
+		<h3 class="text-2xl">How can we improve?</h3>
+		<ScrollInAnimation>
+			<div class="flex flex-col gap-4 text-center">
+				<p>
+					We value your feedback to understand the user experiences, identifying
+					areas for improvement, and making informed updates. We will implement
+					a feedback form within the app
+				</p>
+			</div>
+		</ScrollInAnimation>
+		<SupportButton />
+	</Section>
+  <Section
+		id="subscription-2"
+		className="bg-go2-blue-light"
+	>
+    <SubscriptionOptionsCard/>
+  </Section>
+</PageLayout>

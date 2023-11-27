@@ -5,9 +5,16 @@
 @layer base {
 	html {
 		@apply motion-safe:scroll-smooth;
+		font-size: 16px;
+		font-weight: 400;
+		@screen md {
+			font-size: 18px;
+		}
 	}
-
-	[data-fade-in] {
-		@apply opacity-0 translate-y-8 motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-in-out motion-reduce:opacity-100 motion-reduce:translate-y-0;
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 500;
+	}
+	p {
+		max-width: 700px;
 	}
 }

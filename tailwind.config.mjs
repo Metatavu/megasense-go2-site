@@ -6,8 +6,13 @@ export default {
 	theme: {
 		extend: {
 			backgroundImage: {
-				pollutants: "url('/pollutants.png')",
-				"route-finding": "url('/route-finding.png')",
+				"pollutants": "url('/pollutants.jpg')",
+				"route-finding": "url('/route-finding.jpg')",
+				"clouds-bottom": "url('/clouds-bottom.png')",
+				"clouds-bottom-lg": "url('/clouds-bottom-lg.png')",
+				"app-image": "url('/go2-app-icon.png')",
+				"clouds-top": "url('/clouds-top.png')",
+				"clouds-top-lg": "url('/clouds-top-lg.png')",
 			},
 			fontFamily: {
 				"sans": ["Lexend", ...defaultTheme.fontFamily.sans],
@@ -16,10 +21,19 @@ export default {
 				black: "#333333",
 				"go2-blue": {
 					DEFAULT: "#00a1e5",
-					light: "#edfaff",
-					hover: "#ccdce3"
+					light: "#d9f1fb",
+					hover: "#ccdce3",
+					dark: "#1f2d33"
 				}
 			},
+			height: {
+				"video": ["93vh", "100svh"]
+			},
+			maxHeight: {
+				"home-hero-image": "30vh",
+				"hero-image": "40vh",
+				"video": "-webkit-fill-available"
+			}
 		},
 	},
 	plugins: [],

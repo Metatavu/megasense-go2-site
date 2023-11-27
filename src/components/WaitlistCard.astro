@@ -1,0 +1,156 @@
+---
+// TODO: This component is currently unused but may be required in the future
+import { Image } from "astro:assets";
+import SectionTitle from "./SectionTitle.astro";
+import ScrollInAnimation from "./animations/ScrollInAnimation.astro";
+
+type Props = {
+  image: ImageMetadata;
+};
+
+const { image } = Astro.props;
+
+---
+
+<SectionTitle
+  title="Availability"
+  className="text-go2-blue"
+/>
+<Image
+  src={image}
+  alt="Globe"
+  class="w-4/12 max-w-none sm:w-1/12"
+/>
+<ScrollInAnimation>
+  <h3 class="text-2xl text-black text-center mb-5">
+    Currently available in London
+  </h3>
+  <div class="flex flex-col gap-4 text-black text-center">
+    <p>If you live outside London, don’t worry. We’re constantly expanding coverage.</p>
+    <p>Join the waitlist to be the first know.</p>
+  </div>
+</ScrollInAnimation>
+<waitlist-form class="w-4/5 sm:w-[400px]">
+  <button class="waitlist-button px-6 py-3 uppercase rounded-full bg-go2-blue text-[#fff] flex flex-row gap-2 mb-4 mx-auto md:hover:cursor-pointer">Join the waitlist</button>
+  <!-- TODO: Form post to set up -->
+  <form id="waitlist-form" class="hidden" action="" method="post">
+    <label for="email">Email:</label>
+    <br>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      class="border-2 border-go2-blue-hover w-full"
+    >
+    <br>
+    <label for="first-name">First Name:</label>
+    <br>
+    <input
+      type="text"
+      id="first-name"
+      name="first-name"
+      required
+      class="border-2 border-go2-blue-hover w-full"
+    >
+    <br>
+    <label for="last-name">Last Name:</label>
+    <br>
+    <input
+      type="text"
+      id="last-name"
+      name="last-name"
+      required
+      class="border-2 border-go2-blue-hover w-full"
+    >
+    <br>
+    <label for="city">City:</label>
+    <br>
+    <input
+      type="text"
+      id="city"
+      name="city"
+      required
+      class="border-2 border-go2-blue-hover w-full"
+    >
+    <br>
+    <label for="country">Country:</label>
+    <br>
+    <select
+      id="country"
+      name="country"
+      required
+      class="border-2 border-go2-blue-hover bg-white w-full"
+    >
+      <option disabled selected>Select a country</option>
+    </select>
+    <br>
+    <input
+      type="submit"
+      value="Submit"
+      class="waitlist-button px-4 py-1 uppercase rounded-full bg-go2-blue text-[#fff] flex flex-row gap-2 mb-4 md:hover:cursor-pointer mx-auto my-2"
+    >
+  </form>
+</waitlist-form>
+
+<script>
+  import type { Country } from "src/types";
+
+  class WaitlistForm extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector(".waitlist-button");
+      const form = this.querySelector("#waitlist-form");
+
+      button?.addEventListener("click", () => {
+        toggleFormVisibility();
+      });
+
+      /**
+       * Toggles waiting list form visibility
+       */
+      const toggleFormVisibility = () => {
+        form?.classList.toggle("hidden");
+        populateCountriesSelect();
+      }
+
+      /**
+       * Fetches countries data and populates the select if empty
+       */
+      const populateCountriesSelect = () => {
+        const countrySelect = document.getElementById("country")! as HTMLSelectElement;
+
+        if (countrySelect.options.length > 1) {
+          return;
+        }
+
+        fetch("https://restcountries.com/v3.1/all")
+          .then(response => response.json())
+          .then(data => {
+            data.sort((
+              { name: { common: countryA } }: Country,
+              { name: { common: countryB } }: Country) => {
+              return countryA.localeCompare(countryB);
+            });
+
+            data.forEach(({name: { common }}: Country) => {
+              const option = document.createElement("option");
+              option.value = common;
+              option.text = common;
+              countrySelect.appendChild(option);
+            });
+          })
+          .catch(error => {
+            console.error("Error fetching country data:", error);
+            const option = document.createElement("option");
+              option.text = "Error fetching country data, please contact support.";
+              countrySelect.appendChild(option);
+          });
+        };
+
+      // TODO: Submit handler
+    }
+  }
+  customElements.define("waitlist-form", WaitlistForm);
+</script>
