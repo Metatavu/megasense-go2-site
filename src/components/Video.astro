@@ -110,7 +110,7 @@ const videoPlaceholder = import.meta.env.PUBLIC_VIDEO_PLACEHOLDER;
           if (!cues) return;
 
           const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-          const isFirefox = navigator.userAgent.toLowerCase().includes('firefox');
+          const isFirefox = navigator.userAgent.toLowerCase().includes("firefox");
 
           const lineValue = isSafari || isFirefox ? -4 : -5;
 
