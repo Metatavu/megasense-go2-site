@@ -45,13 +45,11 @@ const { title, icon, className, dense, altText } = Astro.props;
         const isAndroid = /Android|Linux/i.test(navigator.userAgent);
 
         if (isAppleDevice) {
-          // TODO: Replace with app link when available
-          window.open("https://apps.apple.com", "_blank");
+          window.open("https://apps.apple.com/us/app/go2/id1665099325", "_blank");
         } else if (isAndroid) {
-          // TODO: Replace with app link when available
-          window.open("https://play.google.com", "_blank");
+          window.open("https://play.google.com/store/apps/details?id=com.megasense.go2", "_blank");
         }
-        // TODO: Add fallback for other devices
+        // TODO: Add default condition
       }
     }
   }

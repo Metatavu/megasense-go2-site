@@ -46,20 +46,20 @@ const paragraphs = content.split("\n");
       const upArrowIcon = upArrowIconOriginal.cloneNode(true) as HTMLElement;
       upArrowIcon.classList.toggle("hidden");
 
-      button.addEventListener("click", () => {
-        const paragraphs = this.querySelectorAll('[id^="hidden-content-"]');
+      button.addEventListener("click", function () {
+        const paragraphs = this.parentElement!.querySelectorAll('[id^="hidden-content-"]');
 
-        paragraphs.forEach((paragraph, index) => {
+        paragraphs.forEach(paragraph => {
           paragraph.classList.toggle("hidden");
         });
 
-        button.innerText === "READ MORE"
-          ? button.innerText = "READ LESS"
-          : button.innerText = "READ MORE";
+        this.innerText = this.innerText.trim() === "READ MORE" ? "READ LESS" : "READ MORE";
 
-        button.innerText === "READ MORE"
-          ? button.appendChild(downArrowIcon)
-          : button.appendChild(upArrowIcon);
+        if (this.innerText === "READ MORE") {
+          this.appendChild(downArrowIcon);
+        } else {
+          this.appendChild(upArrowIcon);
+        }
       })
     }
   }
